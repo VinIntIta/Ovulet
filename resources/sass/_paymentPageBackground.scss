@@ -1,0 +1,67 @@
+.rectLeftBig {
+  position: absolute;
+  width: 833.42px;
+  height: 1044.07px;
+  left: -361px;
+  top: 1024.69px;
+  background: linear-gradient(180deg, #FF7BFA 0%, rgba(255, 164, 252, 0.453125) 34.9%, rgba(255, 199, 253, 0) 100%);
+  opacity: 0.3;
+  border-radius: 196.204px;
+  transform-origin: top left;
+  transform: rotate(-31.11deg);
+  z-index: -1;
+}
+
+.rectLeftSmall {
+  position: absolute;
+  width: 593.67px;
+  height: 792.73px;
+  left: -172px;
+  top: 995.73px;
+  background: linear-gradient(180deg, #FF7BFA 0%, rgba(255, 164, 252, 0.453125) 34.9%, rgba(255, 199, 253, 0) 100%);
+  border-radius: 196.204px;
+  transform-origin: top left;
+  transform: rotate(-31.11deg);
+  z-index: -1;
+}
+
+.rectRightBig {
+  position: absolute;
+  width: 1221px;
+  height: 1696px;
+  left: 1744.88px;
+  top: 122px;
+  background: linear-gradient(180deg, #FF7BFA 0%, rgba(255, 164, 252, 0.453125) 34.9%, rgba(255, 199, 253, 0) 100%);
+  opacity: 0.3;
+  border-radius: 306px;
+  z-index: -1;
+  transform-origin: top left;
+  transform: rotate(43.89deg);
+  z-index: -1;
+}
+
+.rectRightSmall {
+  position: absolute;
+  width: 925px;
+  height: 1236px;
+  left: 1744.88px;
+  top: 192px;
+  background: linear-gradient(180deg, #FF7BFA 0%, rgba(255, 164, 252, 0.453125) 34.9%, rgba(255, 199, 253, 0) 100%);
+  border-radius: 306px;
+  z-index: 1;
+  transform-origin: top left;
+  transform: rotate(43.89deg);
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  width: 264px;
+  height: 264px;
+  left: 0px;
+  top: 179px;
+  background: #FFC7FD;
+  opacity: 0.3;
+  border-radius: 50%;
+  z-index: -1;
+}
