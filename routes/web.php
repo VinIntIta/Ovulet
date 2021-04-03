@@ -18,13 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get("/payment", function(){
-  return view("paymentPage.paymentForm");
+  return view("paymentPage");
 });
 
 Route::post("/payment", function(){
-  return view("paymentPage.paymentForm");
+  return view("paymentPage");
 });//this route should be changed
 
 Route::get("/calendar", function(){
-  return view("calendarPage.calendar");
+  return view("calendarPage");
 });

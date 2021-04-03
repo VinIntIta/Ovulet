@@ -1,11 +1,15 @@
 @use "colors";
-@use "paymentPage";
-@use "calendarPage";
+@use "./paymentPage/paymentPage";
+@use "./calendarPage/calendarPage";
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
 }
 
 * {
@@ -16,4 +20,9 @@ input::-webkit-inner-spin-button {
 .content {
   position: relative;
   overflow: hidden;
+}
+
+button:hover {
+  background: #FF1B51;
+  box-shadow: 0px 15px 70px rgba(255, 53, 53, 0.25);
 }

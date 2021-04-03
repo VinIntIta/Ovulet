@@ -9,7 +9,7 @@ const monthNames = ["Січень", "Лютий", "Березень", "Квіт�
 ];
 
 $(document).ready(function(){
-  $("#form").validate({
+  $("form[name=settings]").validate({
     rules: validationRules,
     messages: validationMessages,
     submitHandler: (form)=>{
@@ -26,7 +26,13 @@ $(".settings .datepicker").datepicker({
   dayNamesMin: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
   firstDay: 1,
   maxDate: new Date(),
-  monthNames: monthNames
+  monthNames: monthNames,
+  hideIfNoPrevNext: true,//what it does?
+  prevText: "",
+  nextText: "",
+  dateFormat: "dd.mm.yy",
+  altFormat: "mm/dd/yy",
+  altField: ".datepickerHidden"
 });
 
 $.validator.addMethod("selectedDateIsOk", function(value, element){
@@ -43,7 +49,7 @@ $.validator.addMethod("selectedDateIsOk", function(value, element){
 }, "Обрана дата не коректна");
 
 $(".calculateCalendar button").on("click", ()=>{
-  let prevCycleStart = $(".prevCycle input").val();
+  let prevCycleStart = $(".datepickerHidden").val();
   let cycleDuration = $(".cycleDuration select").children("option:selected").val();
   let menstruationDuration = $(".menstruationDuration select").children("option:selected").val();
   console.log(prevCycleStart);

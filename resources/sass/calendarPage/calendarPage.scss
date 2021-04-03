@@ -1,0 +1,156 @@
+@use "../colors";
+@use "../fonts";
+@use "datepicker";
+@use "ovulationCalendar";
+
+.calendarContainer {
+  font-family: "Museo Sans Cyrl 500", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  font-size: 24px;
+  max-width: 59.167em;
+  margin: 0 auto;
+
+  input,
+  select,
+  button {
+    display: inline-block;
+    display: inline-flex;
+    box-sizing: border-box;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 500;
+    padding: 0 0.833em;
+    align-self: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  input,
+  select {
+    background: #FFC7FD;
+    font-size: 24px;
+    height: 2.292em;
+  }
+
+  input::placeholder {
+    color: #fff;
+    opacity: 1;
+    font-size: 24px;
+  }
+
+  input.datepicker {
+    width: 100%;
+    background-image: url("../../svg/calendarPage/calendarIcon.svg");
+    background-position: top 50% right 1.3125em;
+    background-repeat: no-repeat;
+  }
+
+  button {
+    background: #FF3062;
+    font-size: 18px;
+    height: 3.056em;
+    padding: 0 0.556em;
+    box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+  }
+
+  select {
+    appearance: none;
+    background-image: url("../../svg/calendarPage/arrowDown.svg");
+    background-position: top 50% right 0.875em;
+    background-repeat: no-repeat;
+    min-width: 5em;
+  }
+
+  option:last-child{
+    border-radius: 10px;
+  }
+
+  h3 {
+    color:#555982;
+    font-size: 24px;
+    margin-bottom: 0.917em;
+  }
+
+  .settings {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding-top: 1.22em;
+    padding-bottom: 1.667em;
+    border-top: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
+
+    >div:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+}
+
+.prevCycle,
+.cycleDuration,
+.menstruationDuration,
+.calculateCalendar {
+  margin-top: 1.817em;
+  position: relative;
+}
+
+.prevCycle {
+  min-width: 14.917em;
+}
+
+.monthSelector {
+  font-size: 18px;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  text-transform: uppercase;
+  align-items: center;
+  padding: 1.667em 0;
+
+  /*.leftArrow,
+  .rightArrow {
+    position: absolute;
+  }
+
+  .leftArow {
+    left: 0;
+  }
+
+  .rightArrow {
+    right: 0;
+  }*/
+
+  .leftArrow span {
+    background-image: url("../../svg/calendarPage/calendarArrowLeft.svg");
+    background-position: top 50% left 50%;
+    background-repeat: no-repeat;
+    display: block;
+    width: 44px;
+    height: 44px;
+  }
+
+  .rightArrow span {
+    background-image: url("../../svg/calendarPage/calendarArrowRight.svg");
+    background-position: top 50% left 50%;
+    background-repeat: no-repeat;
+    display: block;
+    width: 44px;
+    height: 44px;
+  }
+
+  .leftArrow span:hover,
+  .rightArrow span:hover {
+      background: rgba(196, 196, 196, 0.2);
+    }
+}
+
+.description {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  font-size: 14px;
+  color: #555982;
+  margin-bottom: 0.571em;
+}
