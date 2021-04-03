@@ -23,4 +23,8 @@ Route::get("/payment", function(){
 
 Route::post("/payment", function(){
   return view("paymentPage.paymentForm");
+});//this route should be changed
+
+Route::get("/calendar", function(){
+  return view("calendarPage.calendar");
 });
