@@ -14,7 +14,8 @@ $(document).ready(function(){
     messages: validationMessages,
     submitHandler: (form)=>{
       return false;
-    }
+    },
+    ignore: "",
   });
   let currDate = new Date();
   setMonthYearToShow(currDate);
@@ -22,22 +23,24 @@ $(document).ready(function(){
 });
 
 $(".settings .datepicker").datepicker({
-  //dateFormat: "dd.mm.yy",
   dayNamesMin: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
   firstDay: 1,
   maxDate: new Date(),
   monthNames: monthNames,
-  hideIfNoPrevNext: true,//what it does?
+  hideIfNoPrevNext: true,
   prevText: "",
   nextText: "",
   dateFormat: "dd.mm.yy",
   altFormat: "mm/dd/yy",
-  altField: ".datepickerHidden"
+  altField: ".datepickerHidden",
 });
 
 $.validator.addMethod("selectedDateIsOk", function(value, element){
   let currDate = new Date();
   let selectedDate = new Date(value);
+
+  let currDay = currDate.getDate();
+  let selectedDay = selectedDate.getDate();
 
   let currYear = parseInt(currDate.getFullYear(), 10);
   let currMonth = parseInt(currDate.getMonth() + 1, 10);
@@ -45,17 +48,27 @@ $.validator.addMethod("selectedDateIsOk", function(value, element){
   let selectedYear = parseInt(selectedDate.getFullYear(), 10);
   let selectedMonth = parseInt(selectedDate.getMonth() + 1, 10);
 
-  return this.optional(element) || (currYear >= selectedYear && currMonth >= selectedMonth);
+  return this.optional(element) ||
+    ( ( parseInt(currDate.valueOf(), 10) - parseInt(selectedDate.valueOf(), 10) ) >= 0 );
+
+
 }, "Обрана дата не коректна");
 
-$(".calculateCalendar button").on("click", ()=>{
-  let prevCycleStart = $(".datepickerHidden").val();
-  let cycleDuration = $(".cycleDuration select").children("option:selected").val();
-  let menstruationDuration = $(".menstruationDuration select").children("option:selected").val();
-  console.log(prevCycleStart);
+$(".datepicker").change(function(){
+  if($(".datepickerHidden").val() != "") $(".datepickerHidden").valid()
+});
 
-cycleDuration = parseInt(cycleDuration, 10);
-menstruationDuration = parseInt(menstruationDuration, 10);
+$(".calculateCalendar button").on("click", ()=>{
+
+  if( !$("form[name=settings]").valid() ) return;
+  //console.log("ok");
+  let prevCycleStart = $(".datepickerHidden").val();
+  let cycleDuration = $("#cycleDuration").children("option:selected").val();
+  let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
+
+
+  cycleDuration = parseInt(cycleDuration, 10);
+  menstruationDuration = parseInt(menstruationDuration, 10);
 
   let numDaysToPrevCycle = getNumDaysToPrevCycle(prevCycleStart);
   let daysToNextCycle = cycleDuration - (numDaysToPrevCycle - Math.floor(numDaysToPrevCycle/cycleDuration)*cycleDuration);
@@ -72,12 +85,12 @@ menstruationDuration = parseInt(menstruationDuration, 10);
 
   let firstDayPos = getFirstDayPos(cycleDuration, date);
   firstDayPos = parseInt(firstDayPos, 10);
-  console.log(date);
+
   setMonthYearToShow(date);
   buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
 });
 
-$(".leftArrow").on("click", ()=>{
+$(".prev").on("click", ()=>{
   let currMonth = $(".monthYear").data("month");
   let currYear = $(".monthYear").data("year");
 
@@ -86,10 +99,32 @@ $(".leftArrow").on("click", ()=>{
   let date = new Date(prevYear, prevMonth, 1);
 
   setMonthYearToShow(date);
+
+  if($(".ovulationCalendar").hasClass("colorized")){
+    let cycleDuration = $("#cycleDuration").children("option:selected").val();
+    let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
+    cycleDuration = parseInt(cycleDuration, 10);
+    menstruationDuration = parseInt(menstruationDuration, 10);
+
+    let currMonthOvulationDate = $(".ovulationCalendar td.ovulation").last().html();
+    currMonthOvulationDate = parseInt(currMonthOvulationDate, 10);
+
+    let numDaysInPrevMonth = getNumDaysInMonth(date);
+    let prevMonthOvulationDate = numDaysInPrevMonth - (cycleDuration - currMonthOvulationDate + 1);
+    date = new Date(prevYear, prevMonth, prevMonthOvulationDate);//prev month ovulation date
+
+    let firstDayPos = getFirstDayPos(cycleDuration, date);
+
+    firstDayPos = parseInt(firstDayPos, 10);
+
+    buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
+
+    return;
+  }
   buildCalendar(date);
 });
 
-$(".rightArrow").on("click", ()=>{
+$(".next").on("click", ()=>{
   let currMonth = $(".monthYear").data("month");
   let currYear = $(".monthYear").data("year");
 
@@ -98,10 +133,32 @@ $(".rightArrow").on("click", ()=>{
   let date = new Date(nextYear, nextMonth, 1);
 
   setMonthYearToShow(date);
+  if($(".ovulationCalendar").hasClass("colorized")){
+    let cycleDuration = $("#cycleDuration").children("option:selected").val();
+    let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
+    cycleDuration = parseInt(cycleDuration, 10);
+    menstruationDuration = parseInt(menstruationDuration, 10);
+
+    let currMonthOvulationDate = $(".ovulationCalendar td.ovulation").first().html();
+    currMonthOvulationDate = parseInt(currMonthOvulationDate, 10);
+
+    date = new Date(nextYear, nextMonth, 0);
+    let numDaysInThisMonth = getNumDaysInMonth(date);
+    let nextMonthOvulationDate = cycleDuration - (numDaysInThisMonth - currMonthOvulationDate) + 1;
+    date = new Date(nextYear, nextMonth, nextMonthOvulationDate);//next month ovulation date
+
+    let firstDayPos = getFirstDayPos(cycleDuration, date);
+
+    firstDayPos = parseInt(firstDayPos, 10);
+
+    buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
+
+    return;
+  }
   buildCalendar(date);
 });
 
-let getNumDaysToPrevCycle = function(prevCycleStart){//ok
+let getNumDaysToPrevCycle = function(prevCycleStart){
   let msInDay = 24*60*60*1000;
   let prev = new Date(prevCycleStart).valueOf();
   let today = new Date().valueOf();
@@ -113,7 +170,7 @@ let getNumDaysInMonth = function(date){
   let year = dateCopy.getFullYear();
   let month = dateCopy.getMonth() + 1;
 
-  return new Date(year, month, 0).getDate();
+  return parseInt(new Date(year, month, 0).getDate(), 10);
 }
 
 let getFirstDayPos = function(cycleDuration, nextOvulationStartDate){
@@ -122,7 +179,6 @@ let getFirstDayPos = function(cycleDuration, nextOvulationStartDate){
   nextOvulationStart = parseInt(nextOvulationStart, 10);
 
   let daysInMonth = getNumDaysInMonth(dateCopy);
-  daysInMonth = parseInt(daysInMonth, 10);
   let numFullCycles = Math.floor(nextOvulationStart/cycleDuration);
 
   return cycleDuration - (nextOvulationStart - numFullCycles*cycleDuration - 1) + 1;
@@ -138,7 +194,8 @@ let setMonthYearToShow = function(date){
 }
 
 let buildCalendar = function(date, pos=null, cycleDuration=null, menstruationDuration=null) {
-  let calendar = $(".calendar tbody");
+  //console.log(13+ menstruationDuration);
+  let calendar = $(".ovulationCalendar tbody");
   calendar.html("");
   let numDaysInMonth = getNumDaysInMonth(date);
 
@@ -168,20 +225,26 @@ let buildCalendar = function(date, pos=null, cycleDuration=null, menstruationDur
   let classToAdd ="";
   let html = "";
 
+  if(pos) $(".ovulationCalendar").addClass("colorized");
+
   while(row < numWeeks) {
     html += "<tr>";
     while(day < 7) {
 
-      if (row === 0 && currDay > numDaysInPrevMonth){
-        currMonth = true;
+      if(!isCurrMonth && currDay == 1){
+        isCurrMonth = true;
+      }
+
+      if (row === 0 && (currDay > numDaysInPrevMonth) ){
+        isCurrMonth = true;
         currDay = 1;//should be done only for the first row
       }
       if ( (row === numWeeks - 1) && (currDay > numDaysInMonth) ){
-        currMonth = false;
+        isCurrMonth = false;
         classToAdd="";
         currDay = 1;//should be done only for the last row
       }
-      if(pos && currMonth){
+      if(pos && isCurrMonth){
 
         if(pos == 1){//ovulation
           classToAdd="ovulation";
@@ -214,7 +277,7 @@ let buildCalendar = function(date, pos=null, cycleDuration=null, menstruationDur
         if(pos>cycleDuration) pos = 1;
       }
 
-      if(pos && currMonth){
+      if(pos && isCurrMonth){
         html += "<td class='"+classToAdd+"'>" + currDay + "</td>"
       } else {
         html += "<td>" + currDay + "</td>"

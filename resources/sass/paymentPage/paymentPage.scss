@@ -1,7 +1,6 @@
 @use "../colors";
 @use "../fonts";
 @use "paymentPageBackground";
-//@use "creditCard";
 @use "sass:meta";
 
 .paymentContainer {
@@ -24,7 +23,7 @@
     font-size: 14px;
     color: colors.$white;
     border-radius: 50px;
-    background: #FF3062;
+    background: colors.$red;
     box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
     height: 3.571em;
     padding: 0 1.571em;
@@ -69,7 +68,7 @@
     font-weight: 900;
     font-size: 18px;
     letter-spacing: 0.03em;
-    color: #535353;
+    color: colors.$darkestGray;
   }
 
   input[type="text"],
@@ -87,25 +86,25 @@
      height: 2.083em;
      border-radius: 30px;
      padding: 0 0.833em;
-     background: #FFFFFF;
+     background: colors.$white;
      box-sizing: border-box;
   }
 
   input::placeholder{
-    color: #B8B9C8;
+    color: colors.$lightBlueGray;
     font-size: 18px;
   }
 
   input:focus{
     border: 2px solid rgba(213, 213, 213, 0.3);
     box-sizing: border-box;
-    box-shadow: 0px 4px 5px #A9D6FF;
+    box-shadow: 0px 4px 5px colors.$lightBlue;
     outline: none;
   }
 
   input[type="email"]{
-    background: colors.$gray;
-    color: #B8B9C8;
+    background: colors.$lightestGray6;
+    color: colors.$lightBlueGray;
   }
 
   input[type="number"]{
@@ -113,7 +112,7 @@
   }
 
   input[type="number"]:disabled{
-    background: colors.$inputPink;
+    background: colors.$pink;
     color: colors.$white;
     font-size: 24px;
   }
@@ -128,9 +127,9 @@
     font-size: 24px;
     width: 1.083em;
     height: 1.083em;
-    background: #FFFFFF;
+    background: colors.$white;
     border-radius: 50%;
-    border: 2px solid #A9D6FF;
+    border: 2px solid colors.$lightBlue;
     box-sizing: border-box;
     margin-right: 0.417em;
     -webkit-appearance: none;
@@ -141,7 +140,7 @@
   }
 
   input[type="radio"]:checked {
-      border: 2px solid #A9D6FF;
+      border: 2px solid colors.$lightBlue;
   }
 
   input[type="radio"]:checked:after {
@@ -153,12 +152,12 @@
       height: 0.417em;
       left: calc(50% - 0.417em/2);
       top: calc(50% - 0.417em/2);
-      background: #B0B0B0;
+      background: colors.$lightGray2;
   }
 }
 
 .uploadWrapper {
-  color: #ddd;
+  color: colors.$lightestGray3;
   font-size: 18px;
 
   .drag {
@@ -181,8 +180,8 @@
 
 .paymentMethods {
   width: 28.917em;
-  background: #FDFDFD;
-  border: 1px solid #F5F5F5;
+  background: colors.$lightestGray4;
+  border: 1px solid colors.$lightestGray5;
   box-sizing: border-box;
   box-shadow: 0px 4px 44px rgba(185, 185, 185, 0.25);
   border-radius: 15px;
@@ -222,7 +221,7 @@
   position: relative;
   width: 23.292em;
   height: 2.083em;
-  border: 2px solid #DEDEDE;
+  border: 2px solid colors.$lightLightGay3;
   box-sizing: border-box;
   border-radius: 5px;
   padding-left: 0.417em;
@@ -246,7 +245,7 @@
   width: 39.929em;
 
   span {
-    color:  #C9C9C9;
+    color:  colors.$lightGray3;
     margin-left: 1.077em;
   }
 
@@ -254,6 +253,6 @@
   a:visited,
   a:hover,
   a:active {
-    color: #A9D6FF;
+    color: colors.$lightBlue;
   }
 }

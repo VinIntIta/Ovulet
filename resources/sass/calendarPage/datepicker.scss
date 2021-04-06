@@ -5,12 +5,12 @@
   @include fonts;
   border-radius: 10px;
   padding: 0;
-  background: #FFC7FD;
+  background: colors.$pink
 }
 
 .ui-datepicker-header {
   font-size: 36px;
-  color: #fff;
+  color: colors.$white;
   margin: 0.278em 1.5em;
 }
 
@@ -24,14 +24,14 @@
     thead {
       font-size: 14px;
       font-weight: normal;
-      color: #AAAAAA;
+      color: colors.$gray;
     }
 
     thead th {
       border-top: 1px solid rgba(194, 194, 194, 0.3);
     }
 
-    thead span {//dasdfsd
+    thead span {
       display: block;
       width: 3.571em;
       height: 3.571em;
@@ -40,14 +40,14 @@
 
     td {
       font-size: 18px;
-      border-bottom: 1px solid #B9B9B9;
-      border-right: 1px solid #B9B9B9;
+      border-bottom: 1px solid colors.$lightGray;
+      border-right: 1px solid colors.$lightGray;
       vertical-align: middle;
       text-align: center;
     }
 
     tr:first-child td {
-      border-top: 1px solid #B9B9B9;
+      border-top: 1px solid colors.$lightGray;
     }
 
     tr:last-child td {
@@ -104,20 +104,20 @@
   height: 2.5em;
   line-height: 2.5em;
   border-radius: 2px;
-  background: #fff;
+  background: colors.$white;
   margin: 0.167em;
 }
 
 a.ui-state-default:hover {
  color: colors.$white;
- background: #555982;
+ background: colors.$blueGray;
 }
 
 .ui-state-disabled span{
-  background: #FFC7FD;
+  background: colors.$pink;
 }
 
 a.ui-state-active {
   color: colors.$white;
-  background: #555982;
+  background: colors.$blueGray;
 }

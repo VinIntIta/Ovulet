@@ -1,7 +1,34 @@
-@use "../colors";
 @use "../fonts";
+@use "../colors";
 @use "datepicker";
 @use "ovulationCalendar";
+@use "calendarPageBackground";
+
+%formControl{
+  display: inline-block;
+  display: inline-flex;
+  box-sizing: border-box;
+  border-radius: 30px;
+  color: colors.$white;
+  font-weight: 500;
+  padding: 0 0.833em;
+  align-self: center;
+  align-items: center;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+%button {
+  background: colors.$red;
+  font-size: 18px;
+  height: 3.056em;
+  padding: 0 0.556em;
+  box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+  cursor: pointer;
+}
 
 .calendarContainer {
   font-family: "Museo Sans Cyrl 500", sans-serif;
@@ -9,33 +36,69 @@
   font-size: 24px;
   line-height: 1.2;
   font-size: 24px;
+  min-width: 42.667em;
   max-width: 59.167em;
   margin: 0 auto;
+  margin-bottom: 1.875em;
+
+  h1 {
+    color: colors.$blueGray;
+    font-size: 24px;
+    text-transform: uppercase;
+    padding-bottom: 0.917em;
+    margin-bottom: 1.22em;
+    border-bottom: 1px solid colors.$lightLightGray;
+  }
+
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+}
+
+/*styles for settings form*/
+.settings {
+  padding-bottom: 1.25em;
+  margin-bottom: 1.667em;
+  border-bottom: 1px solid colors.$lightLightGray;
+
+  form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    >div:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+
+  legend {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    font-size: 14px;
+    color: colors.$blueGray;
+    margin-bottom: 0.571em;
+  }
 
   input,
   select,
   button {
-    display: inline-block;
-    display: inline-flex;
-    box-sizing: border-box;
-    border-radius: 30px;
-    color: #fff;
-    font-weight: 500;
-    padding: 0 0.833em;
-    align-self: center;
-    align-items: center;
-    cursor: pointer;
+    @extend %formControl;
   }
 
   input,
   select {
-    background: #FFC7FD;
+    background: colors.$pink;
     font-size: 24px;
     height: 2.292em;
   }
 
   input::placeholder {
-    color: #fff;
+    color: colors.$white;
     opacity: 1;
     font-size: 24px;
   }
@@ -45,14 +108,12 @@
     background-image: url("../../svg/calendarPage/calendarIcon.svg");
     background-position: top 50% right 1.3125em;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
 
   button {
-    background: #FF3062;
-    font-size: 18px;
-    height: 3.056em;
-    padding: 0 0.556em;
-    box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+    @extend %button;
+    padding: 0 1.611em;
   }
 
   select {
@@ -61,44 +122,22 @@
     background-position: top 50% right 0.875em;
     background-repeat: no-repeat;
     min-width: 5em;
+    cursor: pointer;
   }
 
   option:last-child{
     border-radius: 10px;
   }
 
-  h3 {
-    color:#555982;
-    font-size: 24px;
-    margin-bottom: 0.917em;
+  .formInput {
+    margin-top: 1.817em;
+    position: relative;
   }
 
-  .settings {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    padding-top: 1.22em;
-    padding-bottom: 1.667em;
-    border-top: 1px solid #D8D8D8;
-    border-bottom: 1px solid #D8D8D8;
-
-    >div:not(:last-child) {
-      margin-right: 1em;
-    }
+  .prevCycle {
+    min-width: 14.917em;
   }
-}
-
-.prevCycle,
-.cycleDuration,
-.menstruationDuration,
-.calculateCalendar {
-  margin-top: 1.817em;
-  position: relative;
-}
-
-.prevCycle {
-  min-width: 14.917em;
-}
+}/*end of settings form styles*/
 
 .monthSelector {
   font-size: 18px;
@@ -107,50 +146,152 @@
   flex-flow: row nowrap;
   text-transform: uppercase;
   align-items: center;
-  padding: 1.667em 0;
+  margin-bottom: 1.25em;
 
-  /*.leftArrow,
-  .rightArrow {
-    position: absolute;
+  .prev,
+  .next {
+    display: inline-block;
+    width: 2.444em;
+    height: 2.444em;
+    cursor: pointer;
   }
 
-  .leftArow {
-    left: 0;
-  }
-
-  .rightArrow {
-    right: 0;
-  }*/
-
-  .leftArrow span {
+  .prev {
     background-image: url("../../svg/calendarPage/calendarArrowLeft.svg");
     background-position: top 50% left 50%;
     background-repeat: no-repeat;
-    display: block;
-    width: 44px;
-    height: 44px;
   }
 
-  .rightArrow span {
+  .next {
     background-image: url("../../svg/calendarPage/calendarArrowRight.svg");
     background-position: top 50% left 50%;
     background-repeat: no-repeat;
-    display: block;
-    width: 44px;
-    height: 44px;
   }
 
-  .leftArrow span:hover,
-  .rightArrow span:hover {
-      background: rgba(196, 196, 196, 0.2);
+  .prev:hover{
+    background: rgba(196, 196, 196, 0.2);
+    background-image: url("../../svg/calendarPage/calendarArrowLeft.svg");
+    background-position: top 50% left 50%;
+    background-repeat: no-repeat;
+  };
+
+  .next:hover {
+    background: rgba(196, 196, 196, 0.2);
+    background-image: url("../../svg/calendarPage/calendarArrowRight.svg");
+    background-position: top 50% left 50%;
+    background-repeat: no-repeat;
     }
 }
 
-.description {
+.history {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: colors.$lightBlue;
+  width: 25.222em;
+  padding-bottom: 4.556em;
+
+  span {
+    display: inline-block;
+    padding-right: 1.278em;
+  }
+
+  div {
+    position: relative;
+    margin-top: 1.667em;
+  }
+
+  &.folded {
+    span {
+      font-weight: 400;
+      background-image: url("../../svg/calendarPage/historyBigArrowDown.svg"), url("../../svg/calendarPage/historySmallArrowDown.svg");
+      background-position: bottom 20% right 0, bottom calc(20% + 5px) right 3px;
+      background-repeat: no-repeat, no-repeat;
+    }
+  }
+
+  &.unfolded {
+    span {
+      font-weight: 100;
+      color: colors.$darkGray;
+      background-image: url("../../svg/calendarPage/historyBigArrowUp.svg"), url("../../svg/calendarPage/historySmallArrowUp.svg");
+      background-position: top 40% right 0, top calc(40% + 5px) right 3px;
+      background-repeat: no-repeat, no-repeat;
+    }
+  }
+
+  input[type="text"] {
+    @extend %formControl;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    font-size: 18px;
+    color: colors.$lightLightGray2;
+    width: 100%;
+    height: 2.778em;
+    background: colors.$lightestGray;
+    border: 1px solid colors.$lightestGray2;
+    border-radius: 2.778em;
+    box-sizing: border-box;
+    cursor: default;
+  }
+
+  button {
+    @extend %formControl;
+    @extend %button;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    height: 2.778em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 2.778em;
+    padding: 0 1em;
+  }
+}
+
+.colorMeaning {
+  font-size: 24px;
+  margin-bottom: 4.458em;
+
+  tr:first-child td {
+    padding-bottom: 2.75em;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  .color {
+    vertical-align: middle;
+    width: 1.458em;
+    height: 1.458em;
+    border-radius: 10px;
+    margin-right: 1em;
+  }
+
+  .description {
+    vertical-align: middle;
+    margin-right: 3.458em;
+  }
+}
+
+.explanation {
+
+  article {
+    width: 35.875em;
+    margin-bottom: 2em;
+  }
+}
+
+.error {
   position: absolute;
-  bottom: 100%;
-  left: 0;
-  font-size: 14px;
-  color: #555982;
-  margin-bottom: 0.571em;
+  top:100%;
+  top: calc(100% + 0.278em);
+  left:0;
+  width: 100%;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  color: #FF0000;
 }
