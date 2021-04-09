@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Оплата</title>
 
         <!-- Styles -->
         <style>
@@ -23,7 +23,7 @@
         <div class="paymentRectRightSmall"></div>
 
     		<div class="paymentContainer">
-    		  <form name="paymentForm" class="paymentForm" method="post" action="processPayment">
+    		  <form name="paymentForm" class="paymentForm" method="post" action="{{$url}}" accept-charset="utf-8">
     			 <div class="inputWrapper">
     				<legend>Введіть ваш і-мейл</legend>
     				<input name="email" type="email" placeholder="E-email">
@@ -66,25 +66,25 @@
                 <div class="frontSide"><!--frontSide start-->
                   <div class="numberGroup">
                     <div class="numberText">Номер карти</div>
-                    <input class="number" id="ccn" autocomplete="off" value="1111   2222   3333   4444" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="19">
+                    <input class="number" id="ccn" autocomplete="off" placeholder="1111   2222   3333   4444" type="tel" inputmode="numeric"  maxlength="19">
                   </div>
 
                   <div class="validThroughGroup">
                     Строк дії
                     <div class="monthYear">
                       <div class="month">
-                        <input autocomplete="off" value="01"  type="number" minlength="1" maxlength="2" min="00" max="12">
+                        <input autocomplete="off" placeholder="01"  type="number" minlength="1" maxlength="2" min="00" max="12">
                       </div>
                       /
                       <div class="year">
-                        <input autocomplete="off" value="20"  type="number" minlength="2" maxlength="2" min="21" max="99">
+                        <input autocomplete="off" placeholder="21"  type="number" minlength="2" maxlength="2" min="21" max="99">
                       </div>
                     </div>
                   </div>
 
                   <div class="nameGroup">
                     <span class="name">Ім'я</span>
-                    <input autocomplete="off" value="petro poroshenko" class="nameInput" type="text">
+                    <input autocomplete="off" placeholder="petro poroshenko" class="nameInput" type="text">
                     <img src="/svg/visa.svg" alt="visa icon">
                   </div>
                 </div><!--frontSide end-->
@@ -93,7 +93,7 @@
                   <div class="magnetStrip"></div>
                   <div class="cw">
                     <div class="cwText">CW/CVC</div>
-                    <input type="number" value="222" autocomple="off" minLenght="3" maxlength="3" min="0" max="999" pattern="[0-9]{3}"></input>
+                    <input type="number" placeholder="222" autocomple="off">
                   </div>
                   <div class="securePayment">
                     <img src="/svg/locked.svg">
@@ -114,6 +114,11 @@
               </div>
             </div>
           </div><!--payment end-->
+
+          <!--here we add liqpay api to allow user to make payments for our service-->
+          <input type="hidden" name="data" value="{{$data}}"/>
+          <input type="hidden" name="signature" value="{{$signature}}"/>
+          <!--end of adding liqpay api-->
     		  </form>
     		</div><!--payment container end-->
       </div><!--content-->

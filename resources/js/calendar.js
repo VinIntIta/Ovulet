@@ -61,11 +61,10 @@ $(".datepicker").change(function(){
 $(".calculateCalendar button").on("click", ()=>{
 
   if( !$("form[name=settings]").valid() ) return;
-  //console.log("ok");
+
   let prevCycleStart = $(".datepickerHidden").val();
   let cycleDuration = $("#cycleDuration").children("option:selected").val();
   let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
-
 
   cycleDuration = parseInt(cycleDuration, 10);
   menstruationDuration = parseInt(menstruationDuration, 10);
@@ -187,7 +186,7 @@ let getFirstDayPos = function(cycleDuration, nextOvulationStartDate){
 let setMonthYearToShow = function(date){
   let month = date.getMonth();
   let year = date.getFullYear();
-  $(".monthYear")
+  $(".monthSelector .monthYear")
     .text(monthNames[month] + ", " + year)
     .data("month", month)
     .data("year", year);
