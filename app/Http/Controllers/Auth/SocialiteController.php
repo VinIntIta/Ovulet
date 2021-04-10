@@ -12,6 +12,8 @@ class SocialiteController extends Controller
   public function redirectToProvider($provider)
   {
       return Socialite::driver($provider)->redirect();
+      dd($key);
+
   }
   public function handleProviderCallback($provider)
     {
@@ -38,6 +40,7 @@ class SocialiteController extends Controller
             $newUser->email           = $user->email;
             $newUser->provider_id     = $user->id;
             $newUser->provider        = $provider;
+            $newUser->oauth_type      = $provider;
             // $newUser->avatar          = $user->avatar;
             // $newUser->avatar_original = $user->avatar_original;
             $newUser->save();

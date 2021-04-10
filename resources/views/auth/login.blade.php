@@ -59,7 +59,10 @@
               <a href="/login/instagram/redirect">Instagram</a>
             </div>
             <div>
-              <a href="/login/twitter/redirect">Twitter</a>
+              <a href="/login/twitter/redirect">Twitter1</a>
+            </div>
+            <div>
+              <a href="/twitter/login">TwitterAtymic</a>
             </div>
 
             </div>
