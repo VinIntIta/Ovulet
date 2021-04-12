@@ -1,0 +1,123 @@
+@use "../colors";
+@import "../fonts";
+
+.ui-datepicker {
+  @include fonts;
+  border-radius: 10px;
+  padding: 0;
+  background: colors.$pink
+}
+
+.ui-datepicker-header {
+  font-size: 36px;
+  color: colors.$white;
+  margin: 0.278em 1.5em;
+}
+
+.ui-datepicker-title {
+  text-align: center;
+}
+
+.ui-datepicker-calendar {
+    border-spacing: 0 0;
+
+    thead {
+      font-size: 14px;
+      font-weight: normal;
+      color: colors.$gray;
+    }
+
+    thead th {
+      border-top: 1px solid rgba(194, 194, 194, 0.3);
+    }
+
+    thead span {
+      display: block;
+      width: 3.571em;
+      height: 3.571em;
+      line-height: 3.571em;
+    }
+
+    td {
+      font-size: 18px;
+      border-bottom: 1px solid colors.$lightGray;
+      border-right: 1px solid colors.$lightGray;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    tr:first-child td {
+      border-top: 1px solid colors.$lightGray;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td:last-child {
+      border-right: none;
+    }
+
+    td:last-child {
+      border-right: none;
+    }
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next  {
+  position: absolute;
+  top: 0.378em;
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+}
+
+.ui-datepicker-prev {
+  left:0.25em;
+}
+
+.ui-datepicker-next {
+  right:0.25em;
+}
+
+.ui-datepicker-prev span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url("../../svg/calendarPage/datepickerArrowLeft.svg");
+  background-position: top 50% left 50%;
+  background-repeat: no-repeat;
+}
+
+.ui-datepicker-next span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: url("../../svg/calendarPage/datepickerArrowRight.svg");
+  background-position: top 50% right 50%;
+  background-repeat: no-repeat;
+}
+
+.ui-state-default {
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 2px;
+  background: colors.$white;
+  margin: 0.167em;
+}
+
+a.ui-state-default:hover {
+ color: colors.$white;
+ background: colors.$blueGray;
+}
+
+.ui-state-disabled span{
+  background: colors.$pink;
+}
+
+a.ui-state-active {
+  color: colors.$white;
+  background: colors.$blueGray;
+}

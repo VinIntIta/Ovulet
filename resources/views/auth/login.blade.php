@@ -13,7 +13,7 @@
 
             <!-- Email Address -->
             <div>
-                <x-input class="input" id="email"
+                <input class="input" id="email"
                          type="email"
                          name="email"
                          placeholder="{{__('Email')}}"
@@ -23,7 +23,7 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-input class="input" id="password"
+                <input class="input" id="password"
                                 placeholder="{{__('Password')}}"
                                 type="password"
                                 name="password"
@@ -45,9 +45,9 @@
                     </a>
                 @endif
             <div>
-                <x-button class="submit-btn w-100">
+                <button class="button-std">
                     {{ __('Log in') }}
-                </x-button>
+                </button>
             </div>
             <div>
               <a href="/login/google/redirect">Google</a>

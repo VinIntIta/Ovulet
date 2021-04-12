@@ -1,6 +1,3 @@
-/* @import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities'; */
 
 .input{
   background: #FFFFFF;
@@ -17,8 +14,4 @@
   padding-left: 0.5em;
   outline-offset: 0px !important;
   outline: none !important;
-}
-.submit-btn{
-  background: #EEEEEE;
-border-radius: 30px;
 }

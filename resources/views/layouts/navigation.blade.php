@@ -6,6 +6,7 @@
                 <div >
                     <div >{{ Auth::user()->name }}</div>
                     <div >{{ Auth::user()->email }}</div>
+                    <img src="{{asset(Auth::user()->avatar)}}" >
                 </div>
             </div>
 

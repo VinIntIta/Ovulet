@@ -19,7 +19,6 @@ class SocialiteController extends Controller
     {
         try {
             $user = Socialite::driver($provider)->user();
-
         } catch (\Exception $e) {
             return redirect('/login');
         }
@@ -41,8 +40,8 @@ class SocialiteController extends Controller
             $newUser->provider_id     = $user->id;
             $newUser->provider        = $provider;
             $newUser->oauth_type      = $provider;
-            // $newUser->avatar          = $user->avatar;
-            // $newUser->avatar_original = $user->avatar_original;
+            $newUser->avatar          = $user->avatar;
+            $newUser->avatar_original = $user->avatar_original;
             $newUser->save();
             auth()->login($newUser, true);
         }
