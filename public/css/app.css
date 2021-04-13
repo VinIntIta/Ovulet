@@ -1,17 +1,4 @@
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
 
-.input{
-  background: #FFFFFF;
-  border: 1px solid #EEEEEE;
-  box-sizing: border-box;
-  border-radius: 1e+15px;
-  padding-left: 0.5em;
-  }
-.input:focus{
-  background: #FFFFFF;
-  border: 1px solid rgba(140, 198, 63, 0.5);
-  box-sizing: border-box;
-  border-radius: 1e+15px;
-  padding-left: 0.5em;
-  outline-offset: 0px !important;
-  outline: none !important;
-}

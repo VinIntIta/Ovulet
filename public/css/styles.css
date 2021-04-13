@@ -1181,7 +1181,7 @@
   display: inline-block;
   width: 1em;
   height: 1em;
-  background: url(/images/datepickerArrowLeft.svg?06a27910a29b59d9b4bc6f48c5277945);
+  background: url(/images/datepickerArrowLeft.svg?dc4234bac66d768805044300e401ce31);
   background-position: top 50% left 50%;
   background-repeat: no-repeat;
 }
@@ -1190,7 +1190,7 @@
   display: inline-block;
   width: 1em;
   height: 1em;
-  background: url(/images/datepickerArrowRight.svg?3105b23f6e0ce477e417f35976a83366);
+  background: url(/images/datepickerArrowRight.svg?16f113478038c124ae8689c18dc6fcf8);
   background-position: top 50% right 50%;
   background-repeat: no-repeat;
 }
@@ -1413,7 +1413,7 @@ a.ui-state-active {
 }
 .settings input.datepicker {
   width: 100%;
-  background-image: url(/images/calendarIcon.svg?a29285d54cbd4d6bfdacf4469dd93aa4);
+  background-image: url(/images/calendarIcon.svg?9a80261a376eb19d5a4343b7fd7612da);
   background-position: top 50% right 1.3125em;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -1425,7 +1425,7 @@ a.ui-state-active {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background-image: url(/images/arrowDown.svg?acd57d31ad7d8c36c7caa9722e22d4ed);
+  background-image: url(/images/arrowDown.svg?273c239a6bc8d07a3db6835b898c83b5);
   background-position: top 50% right 0.875em;
   background-repeat: no-repeat;
   min-width: 5em;
@@ -1460,24 +1460,24 @@ a.ui-state-active {
   cursor: pointer;
 }
 .monthSelector .prev {
-  background-image: url(/images/calendarArrowLeft.svg?5cc68f9e4bc9e85dfc71f2ecb46c5123);
+  background-image: url(/images/calendarArrowLeft.svg?630d731d9bf9203b98180e7a1b1c0f32);
   background-position: top 50% left 50%;
   background-repeat: no-repeat;
 }
 .monthSelector .next {
-  background-image: url(/images/calendarArrowRight.svg?dba3d072a4b2fbe482841cf2de0b1de2);
+  background-image: url(/images/calendarArrowRight.svg?820b4d4ae997e8beb050e5922d0dee2c);
   background-position: top 50% left 50%;
   background-repeat: no-repeat;
 }
 .monthSelector .prev:hover {
   background: rgba(196, 196, 196, 0.2);
-  background-image: url(/images/calendarArrowLeft.svg?5cc68f9e4bc9e85dfc71f2ecb46c5123);
+  background-image: url(/images/calendarArrowLeft.svg?630d731d9bf9203b98180e7a1b1c0f32);
   background-position: top 50% left 50%;
   background-repeat: no-repeat;
 }
 .monthSelector .next:hover {
   background: rgba(196, 196, 196, 0.2);
-  background-image: url(/images/calendarArrowRight.svg?dba3d072a4b2fbe482841cf2de0b1de2);
+  background-image: url(/images/calendarArrowRight.svg?820b4d4ae997e8beb050e5922d0dee2c);
   background-position: top 50% left 50%;
   background-repeat: no-repeat;
 }
@@ -1499,14 +1499,14 @@ a.ui-state-active {
 }
 .history.folded span {
   font-weight: 400;
-  background-image: url(/images/historyBigArrowDown.svg?2ad1c43d8469bc8e0f97ebdab4056bfd), url(/images/historySmallArrowDown.svg?7ce77c898a3e7b2f532aa268806d7f77);
+  background-image: url(/images/historyBigArrowDown.svg?82edb425bc6d2ff8e41b2a5a2f2e0e88), url(/images/historySmallArrowDown.svg?71d83d61cc1f0e5755faa77c46a081ea);
   background-position: bottom 20% right 0, bottom calc(20% + 5px) right 3px;
   background-repeat: no-repeat, no-repeat;
 }
 .history.unfolded span {
   font-weight: 100;
   color: #737373;
-  background-image: url(/images/historyBigArrowUp.svg?29c7e96643cd7856cb13357c80c52e73), url(/images/historySmallArrowUp.svg?729f0f87deae988a348e51cf10f92f67);
+  background-image: url(/images/historyBigArrowUp.svg?aea699472c884e3437c923fc2b25a49a), url(/images/historySmallArrowUp.svg?fc31bd8b6e7e844aec2983998fe4c0e8);
   background-position: top 40% right 0, top calc(40% + 5px) right 3px;
   background-repeat: no-repeat, no-repeat;
 }
@@ -1575,6 +1575,186 @@ a.ui-state-active {
   color: #FF0000;
 }
 
+.loginContainer {
+  font-family: "Museo Sans Cyrl 500", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #000000;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  width: 16.1em;
+  height: auto;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+.loginContainer .text-md {
+  font-size: 0.65em;
+}
+.loginContainer .text-sm {
+  font-size: 0.55em;
+}
+.loginContainer .socialite-instagram, .loginContainer .socialite-twitter, .loginContainer .socialite-google, .loginContainer .socialite-facebook {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.loginContainer .socialite-facebook {
+  background: linear-gradient(154.95deg, #3457A0 20.16%, #3B5998 65.09%);
+}
+.loginContainer .socialite-facebook svg {
+  position: relative;
+  left: 50.64%;
+  top: 17.01%;
+  bottom: 77.19%;
+}
+.loginContainer .socialite-google {
+  background: #CE3929;
+}
+.loginContainer .socialite-google svg {
+  left: 33.5%;
+  right: 58.46%;
+  top: 17.5%;
+  bottom: 78.73%;
+}
+.loginContainer .socialite-twitter {
+  background: linear-gradient(154.95deg, #00C3FF 20.16%, #00B0ED 65.09%);
+}
+.loginContainer .socialite-twitter svg {
+  position: relative;
+  left: 20.77%;
+  right: 14.55%;
+  top: 21.67%;
+  bottom: 78.82%;
+}
+.loginContainer .socialite-instagram {
+  background: linear-gradient(49.12deg, #FFDD55 6.62%, #FF543E 50.06%, #C837AB 93.5%);
+}
+.loginContainer .socialite-instagram svg {
+  position: relative;
+  left: 12.47%;
+  right: 31.9%;
+  top: 11.95%;
+  bottom: 77.1%;
+}
+
+a {
+  color: #55acee !important;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+.button-std {
+  font-size: 24px;
+  color: #FFFFFF;
+  border-radius: 50px;
+  background: #FF3062;
+  box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+  width: 100%;
+  height: 3.2em;
+  cursor: pointer;
+}
+
+.loginInput {
+  background: #FFFFFF;
+  font-size: 15px;
+  border: 2px solid rgba(213, 213, 213, 0.3);
+  box-sizing: border-box;
+  border-radius: 0.3em;
+  padding-left: 0.5em;
+  height: 3.3em;
+  width: 100%;
+}
+
+.loginInput:focus {
+  background: #FFFFFF;
+  border: 2px solid rgba(213, 213, 213, 0.3);
+  box-sizing: border-box;
+  border-radius: 0.3em;
+  padding-left: 0.5em;
+  outline-offset: 0px !important;
+  outline: none !important;
+}
+
+@media (max-width: 500px) {
+  .loginContainer {
+    font-family: "Museo Sans Cyrl 500", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #000000;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    width: 16.1em;
+    height: auto;
+    background: #FFFFFF;
+    overflow: hidden;
+  }
+  .loginContainer .text-md {
+    font-size: 0.65em;
+  }
+  .loginContainer .text-sm {
+    font-size: 0.55em;
+  }
+  .loginContainer .socialite-facebook, .loginContainer .socialite-google, .loginContainer .socialite-twitter, .loginContainer .socialite-instagram {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
+
+  .button-std {
+    font-size: 13px;
+    color: #FFFFFF;
+    border-radius: 50px;
+    background: #FF3062;
+    box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+    width: 100%;
+    height: 3.2em;
+    cursor: pointer;
+  }
+
+  .loginInput {
+    background: #FFFFFF;
+    font-size: 13px;
+    border: 1px solid #EEEEEE;
+    box-sizing: border-box;
+    border-radius: 1000000000000000px;
+    padding-left: 0.5em;
+    height: 3em;
+    width: 100%;
+  }
+
+  .loginInput:focus {
+    background: #FFFFFF;
+    border: 1px solid rgba(140, 198, 63, 0.5);
+    box-sizing: border-box;
+    border-radius: 1000000000000000px;
+    padding-left: 0.5em;
+    outline-offset: 0px !important;
+    outline: none !important;
+  }
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

@@ -1,13 +1,186 @@
 @use "../colors";
 @use "../fonts";
 
+.loginContainer {
+  font-family: "Museo Sans Cyrl 500", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.2;
+  color: colors.$black;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  width: 16.1em;
+  height: auto;
+  background: colors.$white;
+  overflow: hidden;
+
+  .text-md{
+    font-size: 0.65em;
+    }
+  .text-sm{
+    font-size: 0.55em;
+    }
+  %socialite{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  .socialite-facebook{
+    @extend %socialite;
+    background: linear-gradient(154.95deg, #3457A0 20.16%, #3B5998 65.09%);
+  svg{
+    position: relative;
+    left: 50.64%;
+    top: 17.01%;
+    bottom: 77.19%;
+    }
+  }
+  .socialite-google{
+    @extend %socialite;
+    background: #CE3929;
+  svg{
+    left: 33.5%;
+    right: 58.46%;
+    top: 17.5%;
+    bottom: 78.73%;
+    }
+    }
+  .socialite-twitter{
+      @extend %socialite;
+      background: linear-gradient(154.95deg, #00C3FF 20.16%, #00B0ED 65.09%);
+  svg{
+    position: relative;
+      left: 20.77%;
+      right: 14.55%;
+      top: 21.67%;
+      bottom: 78.82%;
+      }
+  }
+  .socialite-instagram{
+      @extend %socialite;
+      background: linear-gradient(49.12deg, #FFDD55 6.62%, #FF543E 50.06%, #C837AB 93.5%);
+  svg{
+    position: relative;
+    left: 12.47%;
+    right: 31.9%;
+    top: 11.95%;
+    bottom: 77.1%;
+      }
+  }
+}
+
+a{
+  color: rgba(85, 172, 238, 1) !important;
+}
+
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+
+.separator:not(:empty)::before {
+  margin-right: .25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: .25em;
+}
+
 .button-std {
-  font-size: 14px;
+  font-size: 24px;
   color: colors.$white;
   border-radius: 50px;
   background: colors.$red;
   box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
-  height: 3.571em;
-  padding: 0 1.571em;
+  width: 100%;
+  height: 3.2em;
   cursor: pointer;
+}
+.loginInput{
+  background: #FFFFFF;
+  font-size: 15px;
+  border: 2px solid rgba(213, 213, 213, 0.3);
+  box-sizing: border-box;
+  border-radius: 0.3em;
+  padding-left: 0.5em;
+  height: 3.3em;
+  width: 100%;
+  }
+.loginInput:focus{
+  background: #FFFFFF;
+  border: 2px solid rgba(213, 213, 213, 0.3);
+  box-sizing: border-box;
+  border-radius: 0.3em;
+  padding-left: 0.5em;
+  outline-offset: 0px !important;
+  outline: none !important;
+}
+
+
+@media (max-width: 500px) {
+  .loginContainer {
+    font-family: "Museo Sans Cyrl 500", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    color: colors.$black;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    width: 16.1em;
+    height: auto;
+    background: colors.$white;
+    overflow: hidden;
+
+  .text-md{
+    font-size: 0.65em;
+    }
+  .text-sm{
+    font-size: 0.55em;
+    }
+    %socialite{
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+    }
+  }
+  .button-std {
+    font-size: 13px;
+    color: colors.$white;
+    border-radius: 50px;
+    background: colors.$red;
+    box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+    width: 100%;
+    height: 3.2em;
+    cursor: pointer;
+  }
+  .loginInput{
+    background: #FFFFFF;
+    font-size: 13px;
+    border: 1px solid #EEEEEE;
+    box-sizing: border-box;
+    border-radius: 1e+15px;
+    padding-left: 0.5em;
+    height: 3em;
+    width: 100%;
+    }
+  .loginInput:focus{
+    background: #FFFFFF;
+    border: 1px solid rgba(140, 198, 63, 0.5);
+    box-sizing: border-box;
+    border-radius: 1e+15px;
+    padding-left: 0.5em;
+    outline-offset: 0px !important;
+    outline: none !important;
+  }
 }
