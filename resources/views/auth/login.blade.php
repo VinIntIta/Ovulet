@@ -100,26 +100,10 @@
                 </a>
               </div>
             </div>
-            <div>
-              <a href="/login/facebook/redirect">Facebook</a>
-            </div>
-            <div>
-              <a href="/login/instagram/redirect">Instagram</a>
-            </div>
-            <div>
-              <a href="/login/twitter/redirect">Twitter1</a>
-            </div>
-            <div>
-              <a href="/twitter/login">TwitterAtymic</a>
-            </div>
 
             </div>
         </form>
 
-        <fb:login-button
-          scope="public_profile,email"
-          onlogin="checkLoginState();">
-        </fb:login-button>
       </div>
     </x-auth-card>
 
