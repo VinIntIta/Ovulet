@@ -37,7 +37,7 @@
               <div class="uploadWrapper">
                 <div class="drag">
                   <div class="dragArea">
-                    <img src="./svg/upload.svg" alt="upload file icon">
+                    <img src="../images/paymentPage/upload.svg" alt="upload file icon">
                   </div>
                   <div class="or">-або-</div>
                 </div>
@@ -56,10 +56,10 @@
                   Кредитна або дебетова карта
                 </label>
                 <div class="paymentIcons">
-                  <img src="/svg/discover.svg" alt="discover icon">
-                  <img src="/svg/visa.svg" alt="visa icon">
-                  <img src="/svg/americanExpress.svg" alt="american express icon">
-                  <img src="/svg/mastercard.svg" alt="master card icon">
+                  <img src="./images/paymentPage/discover.svg" alt="discover icon">
+                  <img src="./images/paymentPage/visa.svg" alt="visa icon">
+                  <img src="./images/paymentPage/americanExpress.svg" alt="american express icon">
+                  <img src="./images/paymentPage/mastercard.svg" alt="master card icon">
                 </div>
               </div>
               <div class="card"><!--card start-->
@@ -85,7 +85,7 @@
                   <div class="nameGroup">
                     <span class="name">Ім'я</span>
                     <input autocomplete="off" placeholder="petro poroshenko" class="nameInput" type="text">
-                    <img src="/svg/visa.svg" alt="visa icon">
+                    <img src="./images/paymentPage/visa.svg" alt="visa icon">
                   </div>
                 </div><!--frontSide end-->
 
@@ -96,7 +96,7 @@
                     <input type="number" placeholder="222" autocomple="off">
                   </div>
                   <div class="securePayment">
-                    <img src="/svg/locked.svg">
+                    <img src="./images/paymentPage/locked.svg">
                     <span>Безпечний платіж</span>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                     <input name="payOption" type="radio" id="withPaypal" value="paypal">
                     PayPal
                   </label>
-                  <img src="/svg/paypal.svg">
+                  <img src="./images/paymentPage/paypal.svg">
               </div>
               <div class="inputWrapper termsOfUse">
                <button type="submit">Сплатити</button>
