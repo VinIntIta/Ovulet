@@ -30,4 +30,8 @@ class PaymentController extends Controller
 
       return view("paymentPage", $formData);
     }
+
+    public function processPayment(){
+
+    }
 }

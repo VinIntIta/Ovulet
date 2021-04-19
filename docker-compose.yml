@@ -8,6 +8,9 @@ services:
     container_name: mysql
     restart: unless-stopped
     tty: true
+    volumes:
+      - ./docker/mysql/initdb:/docker-entrypoint-initdb.d
+      - ./docker/mysql/dbdata:/var/lib/mysql
     ports:
       - "3306:3306"
     environment:
@@ -38,7 +41,8 @@ services:
       dockerfile: ./Dockerfile
     container_name: ovulet
     volumes:
-      - .:/var/www
+      - ./src:/var/www
+    working_dir: /var/www/
     ports:
       - "8000:80"
     networks:

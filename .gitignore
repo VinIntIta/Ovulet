@@ -1,6 +1,10 @@
+/docker/mysql/dbdata
 /node_modules
 /public/hot
 /public/storage
+/public/css
+/public/images
+/public/js
 /storage/*.key
 /vendor
 .env
