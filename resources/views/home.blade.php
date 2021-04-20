@@ -9,9 +9,9 @@
     <div class="row">
       <div class="col-sm-4">
 
-        <div class="">
+        <div class="Method_pap">
           <h6 class="ovul"> Ovulet сайт для визначення овуляції</h6>
-          <h5 class="met"> методом Папороті</h5>
+          <h2 class="met"> методом Папороті</h2>
         </div>
         <!-- <div class="met">
         </div>   -->
@@ -85,7 +85,8 @@
 </div>
 <!-- end STEP -->
 <!-- Partners -->
-<div class="container-fluid bg-light text-secondary">
+<!-- <div class="container-fluid bg-light text-secondary"> -->
+<!-- <div id="partners-block" class="container-fluid">
   <div class="container">
     <h3>Наші партнери</h3>
     <h5>Компанії які розробляють найновітніщі технології та інструменти у галузі дослідження жіночого тіла.</h5>
@@ -103,7 +104,29 @@
         <div><img src="{{asset("images/privat.png")}}" alt="call" /> </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+
+<div id="partners-block" class="container-fluid">
+  <div class="container">
+    <h3>Наші партнери</h3>
+    <h5>Компанії які розробляють найновітніщі технології та інструменти у галузі дослідження жіночого тіла.</h5>
+  <div class="row">
+    <div class="item">
+      <div><img src="{{asset("images/atos.png")}}" alt="call" /> </div>
     </div>
+    <div class="item">
+      <div><img src="{{asset("images/physio.png")}}" alt="call" /> </div>
+    </div>
+    <div class="item">
+      <div><img src="{{asset("images/kugel.png")}}" alt="call" /> </div>
+    </div>
+    <div class="item">
+      <div><img src="{{asset("images/privat.png")}}" alt="call" /> </div>
+    </div>
+  </div>
+</div>
 </div>
 <!-- and partners -->
 
