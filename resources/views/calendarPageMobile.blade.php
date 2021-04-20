@@ -36,17 +36,29 @@
             <form name="settings">
               <div class="formInput">
                 <legend>День</legend>
-                <div class="dropdown"><select id="day" name="day"></select></div>
+                <div class="dropdown">
+                  <select id="day" name="day">
+                    <option value=""></option>
+                  </select>
+                </div>
               </div>
 
               <div class="formInput">
                 <legend>Місяць</legend>
-                <div class="dropdown"><select id="month" name="month"></select></div>
+                <div class="dropdown">
+                  <select id="month" name="month">
+                    <option value=""></option>
+                  </select>
+                </div>
               </div>
 
               <div class="formInput">
                 <legend>Рік</legend>
-                <div class="dropdown"><select id="year" name="year"></select></div>
+                <div class="dropdown">
+                  <select id="year" name="year">
+                    <option value=""></option>
+                  </select>
+                </div>
               </div>
 
               <div class="formInput">

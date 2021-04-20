@@ -97,10 +97,15 @@
       display: block;
     }
 
+    legend {
+      color: colors.$darkGray2;      
+    }
+
     input,
     select {
       display: block;
       width: 100%;
+      color: colors.$darkGray2;
       background: colors.$white;
       background-image: none;
     }
