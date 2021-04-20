@@ -1,5 +1,12 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/styles.css": "/css/styles.css",
-    "/css/app.css": "/css/app.css"
+    "/images/calendarPage/smilingGirl.jpg": "/images/calendarPage/smilingGirl.jpg",
+    "/images/paymentPage/americanExpress.svg": "/images/paymentPage/americanExpress.svg",
+    "/images/paymentPage/discover.svg": "/images/paymentPage/discover.svg",
+    "/images/paymentPage/locked.svg": "/images/paymentPage/locked.svg",
+    "/images/paymentPage/mastercard.svg": "/images/paymentPage/mastercard.svg",
+    "/images/paymentPage/paypal.svg": "/images/paymentPage/paypal.svg",
+    "/images/paymentPage/upload.svg": "/images/paymentPage/upload.svg",
+    "/images/paymentPage/visa.svg": "/images/paymentPage/visa.svg"
 }

@@ -23,7 +23,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -31,7 +30,8 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get("/payment", [PaymentController::class, "showPayment"]);
+Route::post("/payment", [PaymentController::class, "processPayment"]);
 
 Route::get("/calendar", function(){
-  return view("calendarPage");
+  return view("calendarPageMobile");
 });

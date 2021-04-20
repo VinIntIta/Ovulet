@@ -1,5 +1,5 @@
-const datepicker = require("./libs/jqueryUiCustom/jquery-ui");
 const $ = require("jquery");
+const datepicker = require("jquery-ui/ui/widgets/datepicker.js");
 const validator = require("jquery-validation");
 const {validationRules} = require("./validationRules");
 const {validationMessages} = require("./validationMessages");
@@ -20,6 +20,23 @@ $(document).ready(function(){
   let currDate = new Date();
   setMonthYearToShow(currDate);
   buildCalendar(currDate);
+
+  let day = 1;
+  while (day <= 31){
+      $(".calendarContainer.mobile #day").append("<option value=" + day +">" + day + "</option>");
+      day++;
+  }
+
+  let month = 1;
+  while (month <= 12){
+      $(".calendarContainer.mobile #month").append("<option value=" + month +">" + month + "</option>");
+      month++;
+  }
+
+  let year = parseInt(new Date().getFullYear(), 10);
+  $(".calendarContainer.mobile #year").append("<option value=" + year + ">" + year + "</option>");
+  $(".calendarContainer.mobile #year").append("<option value=" + (year - 1) + ">" + (year - 1) + "</option>");
+
 });
 
 $(".settings .datepicker").datepicker({

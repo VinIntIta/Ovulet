@@ -11,9 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.sourceMaps();
- mix.js('resources/js/app.js', 'public/js');
- mix.postCss('resources/css/app.css', 'public/css', [
-	  //
- ])
- .sass("resources/sass/styles.scss", "public/css");
+ mix.sourceMaps()
+ .js('resources/js/app.js', 'public/js')
+ .sass("resources/sass/styles.scss", "public/css")
+ .copy("resources/images/calendarPage/smilingGirl.jpg", "public/images/calendarPage")
+ .copy("resources/images/paymentPage/*.svg", "public/images/paymentPage");
