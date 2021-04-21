@@ -1,0 +1,258 @@
+@use "../generalStyles";
+@use "../colors";
+@use "background";
+@use "sass:meta";
+
+.paymentContainer {
+  font-family: "Museo Sans Cyrl 500", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.2;
+  color: colors.$black;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 41.583em;
+  background: colors.$white;
+  border: 1px solid colors.$lightBlue;
+  border-radius: 30px;
+  box-shadow: 4px 4px 4px colors.$lightBlue;
+  padding: 2em 0 4.583em 2em;
+  overflow: hidden;
+
+  button {
+    font-size: 14px;
+    color: colors.$white;
+    border-radius: 50px;
+    background: colors.$red;
+    box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+    height: 3.571em;
+    padding: 0 1.571em;
+    cursor: pointer;
+  }
+
+  button[type="submit"] {
+    padding: 0 2.357em;
+  }
+}
+
+.inputWrapper{
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  margin-bottom: 1.667em;
+
+  legend {
+    display: inline-block;
+    display: inline-flex;
+    width: 9.667em;
+    font-size: 18px;
+    margin-right: 2.722em;
+  }
+}
+
+.inputWrapper:last-child{
+  margin-bottom: 0;
+}
+
+.photoUpload,
+.payment {
+  legend {
+    display: inline-flex;
+    align-self: stretch;
+  }
+}
+
+.paymentForm {
+  label {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.03em;
+    color: colors.$darkestGray;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+   {
+     font-family: "Museo Sans Cyrl 500", sans-serif;
+     font-weight: 500;
+     font-size: 24px;
+     line-height: 1.2;
+     display: inline-block;
+     display: inline-flex;
+     width: 17.792em;
+     height: 2.083em;
+     border-radius: 30px;
+     padding: 0 0.833em;
+     background: colors.$white;
+     box-sizing: border-box;
+  }
+
+  input::placeholder{
+    color: colors.$lightBlueGray;
+    font-size: 18px;
+  }
+
+  input:focus{
+    border: 2px solid rgba(213, 213, 213, 0.3);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 5px colors.$lightBlue;
+    outline: none;
+  }
+
+  input[type="email"]{
+    background: colors.$lightestGray6;
+    color: colors.$lightBlueGray;
+  }
+
+  input[type="number"]{
+    -moz-appearance: textfield;
+  }
+
+  input[type="number"]:disabled{
+    background: colors.$pink;
+    color: colors.$white;
+    font-size: 24px;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  input[type="radio"] {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    width: 1.083em;
+    height: 1.083em;
+    background: colors.$white;
+    border-radius: 50%;
+    border: 2px solid colors.$lightBlue;
+    box-sizing: border-box;
+    margin-right: 0.417em;
+    -webkit-appearance: none;
+  }
+
+  input[type="radio"]:focus {
+      box-shadow: none;
+  }
+
+  input[type="radio"]:checked {
+      border: 2px solid colors.$lightBlue;
+  }
+
+  input[type="radio"]:checked:after {
+      border-radius: 50%;
+      content: '';
+      display: block;
+      position: relative;
+      width: 0.417em;
+      height: 0.417em;
+      left: calc(50% - 0.417em/2);
+      top: calc(50% - 0.417em/2);
+      background: colors.$lightGray2;
+  }
+}
+
+.uploadWrapper {
+  color: colors.$lightestGray3;
+  font-size: 18px;
+
+  .drag {
+    width: 11.111em;
+  }
+
+  .dragArea img {
+    width: 100%;
+  }
+
+  .or {
+    text-align: center;
+    padding: 0.111em 0;
+  }
+
+  .upload:hover {
+    cursor: pointer;
+  }
+}
+
+.paymentMethods {
+  width: 28.917em;
+  background: colors.$lightestGray4;
+  border: 1px solid colors.$lightestGray5;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 44px rgba(185, 185, 185, 0.25);
+  border-radius: 15px;
+  padding: 0.75em 0.75em 1.208em 0.75em;
+
+  .withCard {
+    padding-bottom: 1.083em;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+  }
+  label {
+    display: inline-flex;
+  }
+}
+
+.paymentIcons {
+  display: inline-block;
+  padding:0 0.625em;
+
+  img {
+    display: inline-block;
+    width: 1.667em;
+    height: 1.667em;
+  }
+  img:not(:last-child){
+    margin-right: 0.25em;
+  }
+}
+
+@include meta.load-css("./creditCard");
+
+.withPaypal {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  position: relative;
+  width: 23.292em;
+  height: 2.083em;
+  border: 2px solid colors.$lightLightGay3;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 0.417em;
+  padding-right: 0.542em;
+  margin-bottom: 0.625em;
+
+  img {
+    position: absolute;
+    top: 0;
+    right: 0.542em;
+    width: 1.667em;
+    height: 1.667em;
+  }
+}
+
+.termsOfUse {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 14px;
+  width: 39.929em;
+
+  span {
+    color:  colors.$lightGray3;
+    margin-left: 1.077em;
+  }
+
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: colors.$lightBlue;
+  }
+}

@@ -1,0 +1,17 @@
+@import "../fonts/MuseoSansCyrillic/stylesheet.css";
+@import "../fonts/Roboto/stylesheet.css";
+@import "../fonts/RobotoSlab/stylesheet.css";
+
+@font-face{
+  font-family: 'Roboto Slab', serif;
+}
+
+@font-face{
+  font-family: "Roboto", sans-serif;
+}
+
+@mixin fonts {
+  font-family: "Museo Sans Cyrl 500", sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+}

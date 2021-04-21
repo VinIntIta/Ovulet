@@ -1,0 +1,185 @@
+@use "../generalStyles";
+@use "../colors";
+
+.calendarContainer.mobile {
+  width:auto;
+  min-width: auto;
+  max-width: 100%;
+
+  .splashImg {
+    font-size: 14px;
+    margin-bottom: 0 auto 1em auto;
+    text-align: center;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .intro {
+    font-size: 14px;
+    padding: 1em 2em 1.429em 2em;
+    color: colors.$blueGray;
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 0.714em;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    p.caution {
+      font-size: 12px;
+    }
+  }
+
+  .settings {
+    display: block;
+    font-size: 14px;
+    color: colors.$darkGray2;
+    background: rgba(255, 199, 253, 0.5);
+    padding: 1em 2em 1.357em 2em;
+    margin-bottom: 0;
+
+    h2 {
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    legend {
+      position: static;
+      display: block;
+      width: 100%;
+      text-transform: lowercase;
+      font-size: 12px;
+    }
+
+    .formInput {
+      position: relative;
+      margin-top: 0;
+      margin-right: 3em;
+      margin-bottom: 1em;
+    }
+
+    .dropdown {
+      position: relative;
+      cursor: pointer;
+      pointer-events: none;
+
+      select {
+        pointer-events: auto;
+      }
+    }
+
+    .dropdown::after {
+      content: "";
+      width: 2em;
+      height: 100%;
+      background: colors.$lightestGray8;
+      background-image: url("../../images/calendarPage/arrowDownMobile.svg");
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    form {
+      display: block;
+    }
+
+    input,
+    select {
+      display: block;
+      width: 100%;
+      background: colors.$white;
+      background-image: none;
+    }
+  }
+
+  .ovulationCalendar {
+    font-size: 14px;
+
+    table {
+      margin: 0 auto;
+    }
+
+    th {
+      padding: 0;
+    }
+
+    tbody {
+      background: colors.$lightestGray7;
+    }
+
+    td {
+      color: colors.$lightGray;
+      font-size: 9px;
+      border-bottom: 0.18px solid rgba(0, 0, 0, 0.2);
+      border-right: 0.18px solid rgba(0, 0, 0, 0.2);
+    }
+
+    tr td:last-child {
+      border-right: none;
+    }
+
+    tr:last-child td{
+      border-bottom: none;
+    }
+
+    tr:first-child>td:first-child {
+      border-top-left-radius: 0;
+    }
+
+    tr:first-child>td:last-child {
+      border-top-right-radius: 0;
+    }
+
+    tr:last-child>td:first-child {
+      border-bottom-left-radius: 0;
+    }
+
+    tr:last-child>td:last-child {
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .calculateCalendar {
+    background: colors.$white;
+    padding: 2em;
+  }
+
+  button[type="submit"] {
+    @extend %formControl;
+    @extend %button;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  .colorMeaning {
+    padding: 0 2em;
+
+    .color {
+      border-radius: 3px
+    }
+
+    li {
+      padding-bottom: 1em;
+      font-size: 14px;
+    }
+
+    li:last-child {
+      padding-bottom: 0;
+    }
+  }
+}

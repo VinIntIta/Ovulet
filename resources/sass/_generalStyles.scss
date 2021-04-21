@@ -1,0 +1,61 @@
+@use "fonts";
+@use "colors";
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.textBold {
+  font-weight: bold;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+}
+
+%formControl {
+  display: inline-block;
+  display: inline-flex;
+  box-sizing: border-box;
+  border-radius: 30px;
+  color: colors.$white;
+  font-weight: 500;
+  padding: 0 0.833em;
+  align-self: center;
+  align-items: center;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+%button {
+  background: colors.$red;
+  font-size: 18px;
+  height: 3.056em;
+  padding: 0 0.556em;
+  box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+  cursor: pointer;
+}
+
+button:hover {
+  background: #FF1B51;
+  box-shadow: 0px 15px 70px rgba(255, 53, 53, 0.25);
+}
