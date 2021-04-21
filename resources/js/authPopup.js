@@ -18,14 +18,13 @@ $(function () {
             error: (response) => {
         if(response.status === 422) {
             let errors = response.responseJSON.errors;
-            console.log(errors);
             Object.keys(errors).forEach(function (key) {
-              console.log(key);
                 $("#" + key + "Login").addClass("invalid-input");
                 $("#" + "passwordLogin").addClass("invalid-input");
                 $("#" + key + "LoginError").children("strong").text(errors[key][0]);
             })
         } else {
+            console.log('not 422');
             window.location.reload();
         }
     }
@@ -54,14 +53,13 @@ $(function () {
     error: (response) => {
         if(response.status === 422) {
             let errors = response.responseJSON.errors;
-            console.log(errors);
             Object.keys(errors).forEach(function (key) {
-              console.log(key);
                 $("#" + key + "Register").addClass("invalid-input");
                 $("#" + key + "_confirmationRegister").addClass("invalid-input");
                 $("#" + key + "RegisterError").children("strong").text(errors[key][0]);
             })
         } else {
+            console.log('not 422');
             window.location.reload();
         }
     }

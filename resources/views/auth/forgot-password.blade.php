@@ -1,31 +1,35 @@
 <x-app-layout>
-    <x-auth-card>
 
-        <div >
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
 
         <!-- Session Status -->
-        <x-auth-session-status  :status="session('status')" />
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors  :errors="$errors" />
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+        <div class="authContainer">
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+          <div class="mt-5 mb-5">Забули пароль?</div>
 
-                <x-input id="email" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+          <div class="text-md my-4">Не проблема введіть імейл адресу за допомогою якої ви реєструвалися на сайті, та ми відправимо Вам посилання за яким Ви зможете його змінити на новий.</div>
 
-            <div >
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
+
+          <form method="POST" action="{{ route('password.email') }}">
+              @csrf
+
+              <!-- Email Address -->
+              <div>
+                  <input class="loginInput" id="emailForgot"
+                         type="email"
+                         name="email"
+                         value="{{old('email')}}"
+                         required autofocus />
+              </div>
+
+              <div >
+                  <button class="button-std mt-4">
+                      {{ __('Надіслати посилання зміни паролю') }}
+                  </button>
+              </div>
+          </form>
+        </div>
+
 </x-app-layout>

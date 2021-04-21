@@ -605,15 +605,78 @@
 
 
 @charset "UTF-8";
-/*button color*/
-/*input background*/
-/*link color*/
 @font-face {
   font-family: "Roboto Slab", serif;
 }
 @font-face {
   font-family: "Roboto", sans-serif;
 }
+/*button color*/
+/*input background*/
+/*link color*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.textBold {
+  font-weight: bold;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+}
+
+.settings input,
+.settings select,
+.settings button, .history input[type=text], .history button, .calendarContainer.mobile button[type=submit] {
+  display: inline-block;
+  display: inline-flex;
+  box-sizing: border-box;
+  border-radius: 30px;
+  color: #FFFFFF;
+  font-weight: 500;
+  padding: 0 0.833em;
+  align-self: center;
+  align-items: center;
+}
+.settings input:active,
+.settings select:active,
+.settings button:active, .history input[type=text]:active, .history button:active, .calendarContainer.mobile button[type=submit]:active, .settings input:focus,
+.settings select:focus,
+.settings button:focus, .history input[type=text]:focus, .history button:focus, .calendarContainer.mobile button[type=submit]:focus {
+  outline: none;
+}
+
+.settings button, .history button, .calendarContainer.mobile button[type=submit] {
+  background: #FF3062;
+  font-size: 18px;
+  height: 3.056em;
+  padding: 0 0.556em;
+  box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
+  cursor: pointer;
+}
+
+button:hover {
+  background: #FF1B51;
+  box-shadow: 0px 15px 70px rgba(255, 53, 53, 0.25);
+}
+
 .paymentRectLeftBig {
   position: absolute;
   width: 833.42px;
@@ -1285,6 +1348,154 @@ a.ui-state-active {
   background: #FFD234;
 }
 
+.calendarContainer.mobile {
+  width: auto;
+  min-width: auto;
+  max-width: 100%;
+}
+.calendarContainer.mobile .splashImg {
+  font-size: 14px;
+  margin-bottom: 0 auto 1em auto;
+  text-align: center;
+}
+.calendarContainer.mobile .splashImg img {
+  width: 100%;
+}
+.calendarContainer.mobile .intro {
+  font-size: 14px;
+  padding: 1em 2em 1.429em 2em;
+  color: #555982;
+}
+.calendarContainer.mobile .intro h1 {
+  font-size: 18px;
+  margin-bottom: 0.3em;
+}
+.calendarContainer.mobile .intro p {
+  font-size: 14px;
+  margin-bottom: 0.714em;
+}
+.calendarContainer.mobile .intro p:last-child {
+  margin-bottom: 0;
+}
+.calendarContainer.mobile .intro p.caution {
+  font-size: 12px;
+}
+.calendarContainer.mobile .settings {
+  display: block;
+  font-size: 14px;
+  color: #4D4D4D;
+  background: rgba(255, 199, 253, 0.5);
+  padding: 1em 2em 1.357em 2em;
+  margin-bottom: 0;
+}
+.calendarContainer.mobile .settings h2 {
+  font-size: 14px;
+  font-weight: normal;
+}
+.calendarContainer.mobile .settings legend {
+  position: static;
+  display: block;
+  width: 100%;
+  text-transform: lowercase;
+  font-size: 12px;
+}
+.calendarContainer.mobile .settings .formInput {
+  position: relative;
+  margin-top: 0;
+  margin-right: 3em;
+  margin-bottom: 1em;
+}
+.calendarContainer.mobile .settings .dropdown {
+  position: relative;
+  cursor: pointer;
+  pointer-events: none;
+}
+.calendarContainer.mobile .settings .dropdown select {
+  pointer-events: auto;
+}
+.calendarContainer.mobile .settings .dropdown::after {
+  content: "";
+  width: 2em;
+  height: 100%;
+  background: #E4E4E4;
+  background-image: url(/images/arrowDownMobile.svg?be0f72a60dc1849943f1bbcf69ff4c72);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.calendarContainer.mobile .settings form {
+  display: block;
+}
+.calendarContainer.mobile .settings input,
+.calendarContainer.mobile .settings select {
+  display: block;
+  width: 100%;
+  background: #FFFFFF;
+  background-image: none;
+}
+.calendarContainer.mobile .ovulationCalendar {
+  font-size: 14px;
+}
+.calendarContainer.mobile .ovulationCalendar table {
+  margin: 0 auto;
+}
+.calendarContainer.mobile .ovulationCalendar th {
+  padding: 0;
+}
+.calendarContainer.mobile .ovulationCalendar tbody {
+  background: #F4F4F4;
+}
+.calendarContainer.mobile .ovulationCalendar td {
+  color: #B9B9B9;
+  font-size: 9px;
+  border-bottom: 0.18px solid rgba(0, 0, 0, 0.2);
+  border-right: 0.18px solid rgba(0, 0, 0, 0.2);
+}
+.calendarContainer.mobile .ovulationCalendar tr td:last-child {
+  border-right: none;
+}
+.calendarContainer.mobile .ovulationCalendar tr:last-child td {
+  border-bottom: none;
+}
+.calendarContainer.mobile .ovulationCalendar tr:first-child > td:first-child {
+  border-top-left-radius: 0;
+}
+.calendarContainer.mobile .ovulationCalendar tr:first-child > td:last-child {
+  border-top-right-radius: 0;
+}
+.calendarContainer.mobile .ovulationCalendar tr:last-child > td:first-child {
+  border-bottom-left-radius: 0;
+}
+.calendarContainer.mobile .ovulationCalendar tr:last-child > td:last-child {
+  border-bottom-right-radius: 0;
+}
+.calendarContainer.mobile .calculateCalendar {
+  background: #FFFFFF;
+  padding: 2em;
+}
+.calendarContainer.mobile button[type=submit] {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.calendarContainer.mobile .colorMeaning {
+  padding: 0 2em;
+}
+.calendarContainer.mobile .colorMeaning .color {
+  border-radius: 3px;
+}
+.calendarContainer.mobile .colorMeaning li {
+  padding-bottom: 1em;
+  font-size: 14px;
+}
+.calendarContainer.mobile .colorMeaning li:last-child {
+  padding-bottom: 0;
+}
+
 .calendarRectLeftBottom {
   position: absolute;
   width: 1221.58px;
@@ -1312,34 +1523,29 @@ a.ui-state-active {
   z-index: -1;
 }
 
-.history button, .history input[type=text], .settings input,
-.settings select,
-.settings button {
-  display: inline-block;
-  display: inline-flex;
-  box-sizing: border-box;
-  border-radius: 30px;
-  color: #FFFFFF;
-  font-weight: 500;
-  padding: 0 0.833em;
-  align-self: center;
-  align-items: center;
-}
-.history button:active, .history input[type=text]:active, .settings input:active,
-.settings select:active,
-.settings button:active, .history button:focus, .history input[type=text]:focus, .settings input:focus,
-.settings select:focus,
-.settings button:focus {
-  outline: none;
+.calendarMobileRectTopBig {
+  position: absolute;
+  width: 218.31px;
+  height: 291.51px;
+  left: 298.1px;
+  top: 74px;
+  background: linear-gradient(180deg, rgba(255, 123, 250, 0.3) 0%, rgba(255, 164, 252, 0.135938) 34.9%, rgba(255, 199, 253, 0) 100%);
+  opacity: 0.3;
+  border-radius: 40px;
+  transform: rotate(43.89deg);
+  z-index: -1;
 }
 
-.history button, .settings button {
-  background: #FF3062;
-  font-size: 18px;
-  height: 3.056em;
-  padding: 0 0.556em;
-  box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
-  cursor: pointer;
+.calendarMobileRectTopSmall {
+  position: absolute;
+  width: 165.47px;
+  height: 220.95px;
+  left: 301.04px;
+  top: 86.4px;
+  background: linear-gradient(180deg, #FF7BFA 0%, rgba(255, 164, 252, 0.453125) 34.9%, rgba(255, 199, 253, 0) 100%);
+  border-radius: 40px;
+  transform: rotate(43.89deg);
+  z-index: -1;
 }
 
 .calendarContainer {
@@ -1764,28 +1970,4 @@ a {
     outline-offset: 0px !important;
     outline: none !important;
   }
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-.content {
-  position: relative;
-  overflow: hidden;
-}
-
-button:hover {
-  background: #FF1B51;
-  box-shadow: 0px 15px 70px rgba(255, 53, 53, 0.25);
 }

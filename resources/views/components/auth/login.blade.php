@@ -31,7 +31,7 @@
                          name="email"
                          placeholder="{{__('Email')}}"
                          value="{{old('email')}}"
-                         required autofocus />
+                         autofocus />
             </div>
 
             <!-- Password -->
@@ -40,7 +40,7 @@
                                 placeholder="{{__('Password')}}"
                                 type="password"
                                 name="password"
-                                required autocomplete="current-password" />
+                                autocomplete="current-password" />
             </div>
 
           <div class="text-sm">
