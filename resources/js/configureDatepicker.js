@@ -1,5 +1,5 @@
 const $ = require("jquery");
-const monthNames = require("./monthNames");
+const {monthNames} = require("./monthNames");
 
 module.exports = function configureDatepicker(){
   $(".settings .datepicker").datepicker({

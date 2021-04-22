@@ -98,7 +98,7 @@
     }
 
     legend {
-      color: colors.$darkGray2;      
+      color: colors.$darkGray2;
     }
 
     input,
@@ -186,5 +186,12 @@
     li:last-child {
       padding-bottom: 0;
     }
+  }
+  select.error {
+    border: 1px solid colors.$red;
+  }
+
+  label.error {
+    text-align: center;
   }
 }

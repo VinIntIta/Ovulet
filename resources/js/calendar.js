@@ -8,7 +8,8 @@ const {monthNames} = require("./monthNames");
 const {getNumDaysToPrevCycle, getNumDaysInMonth, getFirstDayPos} = require("./helpers");
 
 $(document).ready(function(){
-  configureValidator();
+  let pageVersion = $(".calendarContainer").hasClass("mobile") ? "mobile" : "desktop";
+  configureValidator(pageVersion);
   configureDatepicker();
   let currDate = new Date();
   setMonthYearToShow(currDate);

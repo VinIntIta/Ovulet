@@ -2,10 +2,10 @@ const $ = require("jquery");
 const {validationRules} = require("./validationRules");
 const {validationMessages} = require("./validationMessages");
 
-module.exports = function configureValidator(){
+module.exports = function configureValidator(pageVersion){//pageVersion can be desctop or mobile
   $("form[name=settings]").validate({
-    rules: validationRules,
-    messages: validationMessages,
+    rules: validationRules[pageVersion],
+    messages: validationMessages[pageVersion],
     submitHandler: (form)=>{
       return false;
     },
