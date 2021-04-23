@@ -5,7 +5,7 @@
 
 <body>
 <!-- Method pap -->
-  <div class="container">
+  <div class="container home">
     <div class="row">
       <div class="col-sm-4">
 
