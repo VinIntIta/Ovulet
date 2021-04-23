@@ -1,7 +1,7 @@
 @use "fonts";
 @use "colors";
-@import "./bootstrap-4.5.3/bootstrap";
-@import "./bootstrap-5.0.0-beta3/bootstrap";
+@import "./frameworks/bootstrap-4.5.3/bootstrap";
+@import "./frameworks/bootstrap-5.0.0-beta3/bootstrap";
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

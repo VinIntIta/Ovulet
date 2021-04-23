@@ -1,0 +1,247 @@
+.container.home {
+  
+  /* .slogan {
+
+    font-family: Bauhaus 93;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: #C9C9C9;
+
+  } */
+  body {
+    font-size: 18px;
+    background: url(/images/background.jpg);
+    /* background-attachment: fixed; */
+    background-size: 100%;
+  }
+
+  h1 {
+    font-size: 51px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 14px;
+  }
+
+  footer {
+    width: 100%;
+    /* height: 108px; */
+    background: #2F2F2F;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 30px; */
+    color: #909090  ;
+    flex-wrap: wrap;
+  }
+
+
+
+  footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  footer div.item {
+    /* width: 200px; */
+    margin: 30px 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  footer div.item.img social {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    grayscale: 1;
+  }
+  footer div.item.img social:hover {
+    width: 100px;
+   grayscale: 0;
+   }
+
+  footer div.item img {
+    margin-right: 10px;
+  }
+
+  header {
+    width: 100%;
+    /* height: 117px; */
+    /* background: #2F2F2F; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    opacity: 1;
+  }
+
+
+  header div.slogan span{
+    /* width: 172px;
+    height: 47px; */
+    color: #C9C9C9;
+    /* display: flex; */
+    justify-content: space-around;
+    align-items: right;
+  }
+
+  header div.nav.navbar text{
+    /* width: 607px;
+    height: 29px; */
+    color: #4954C6;
+    display: flex;
+    justify-content: space-around;
+    align-items: right;
+  }
+  /* header div.nav.navbar a{
+    width: 106px;
+    height: 22px;
+    color: #555982;
+    display: flex;
+    justify-content: space-around;
+    align-items: right;
+  } */
+   a{
+    width: 106px;
+    height: 22px;
+    color: #555982;
+    display: flex;
+    justify-content: space-around;
+    align-items: right;
+  }
+  a:hover{
+   color: #5F69D3;
+   }
+  a:active{
+   color: #4954C6;
+   }
+
+   body div.Method_pap{
+    color: #646BAB;
+   /* display: flex; */
+   justify-content: space-around;
+   align-items: right;
+
+   }
+
+  body div.era img{
+    width: 100%;
+    /* width: 628px;
+    height: 628px; */
+  }
+  body div.stepall{
+    width: 1159px;
+  /* height: 659px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+    filter: opacity(100%);
+  /* box-shadow: 0px 20px 134px rgba(0, 0, 0, 0.11);
+  border-radius: 10px; */
+  }
+  body div.step{
+    width: 100%;
+  height: 659px;
+  padding:  50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+    background: #FCFCFC;
+  box-shadow: 0px 20px 134px rgba(0, 0, 0, 0.11);
+  border-radius: 10px;
+  }
+  body div.item {
+    /* width: 200px; */
+    margin: 10px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #step-block .col-sm-6:nth-child(2) {
+    margin-top: 250px;
+  }
+
+  #step-block .col-sm-6:nth-child(3) {
+    margin-top: -150px;
+  }
+
+  #step-block .col-sm-6:last-child {
+    margin-top: 100px;
+  }
+
+  #step-block .container-fluid {
+    padding: 0;
+    height: 100%;
+  }
+
+  #step-block h2 {
+    margin-bottom: 30px;
+  }
+
+  /* #partners-block .container-fluid  { */
+  #partners-block .container  {
+    /* padding: 0; */
+    height: 100%;
+  /* color: #8F8F8F; */
+  background: #F9F9F9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  }
+
+  #partners-block .row  {
+  justify-content: center;
+  /* max-width: 814px; */
+  }
+  #partners-block  h5, h3 {
+    color: #8F8F8F;
+  }
+
+  body div.step img{
+    width: 100%;
+    /* height: 331px; */
+    /* padding: 50px; */
+    /* margin:  50px; */
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    /* left: 50px;
+    top: 50px; */
+  }
+
+  @media screen and (max-width: 600px) {
+    footer {
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    body {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+  body   {
+      flex-direction: column;
+    }
+  }
+  @media screen and (max-width: 1199px) {
+  partners-block  {
+      flex-direction: column;
+    }
+  }
+}
