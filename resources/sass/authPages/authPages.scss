@@ -1,8 +1,8 @@
 @use "../colors";
 @use "../fonts";
 
-.loginContainer {
-  font-family: "Museo Sans Cyrl 500", sans-serif;
+.authContainer {
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 28px;
   line-height: 1.2;
@@ -125,11 +125,20 @@ a{
   outline-offset: 0px !important;
   outline: none !important;
 }
+.invalid-input{
+  border: 2px solid rgba(242, 38, 19, 1);
+}
+.validation-error{
+  font-size: 15px;
+  margin: 0.5em;
+  color: rgba(242, 38, 19, 1);
+}
+
 
 
 @media (max-width: 500px) {
-  .loginContainer {
-    font-family: "Museo Sans Cyrl 500", sans-serif;
+  .authContainer {
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 1.2;

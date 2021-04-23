@@ -33,7 +33,7 @@
       </div>
       <div class="col-sm-2">
         <div><img src="{{asset("images/Cab.png")}}" alt="call" />
-        <span>Лола Франк</span>
+        <span><x-auth.auth-combined/></span>
         </div>
       </div>
     </div>

@@ -1,5 +1,3 @@
-<x-app-layout>
-
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
   Login
 </button>
@@ -33,7 +31,7 @@
                          name="email"
                          placeholder="{{__('Email')}}"
                          value="{{old('email')}}"
-                         required autofocus />
+                         autofocus />
             </div>
 
             <!-- Password -->
@@ -42,7 +40,7 @@
                                 placeholder="{{__('Password')}}"
                                 type="password"
                                 name="password"
-                                required autocomplete="current-password" />
+                                autocomplete="current-password" />
             </div>
 
           <div class="text-sm">
@@ -79,5 +77,3 @@
   </div>
 </div>
 </div>
-
-</x-app-layout>
