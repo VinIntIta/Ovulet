@@ -18,6 +18,7 @@
   </div>
 </div>
 <div class="item">
+  
   <img class="social" src="{{asset("images/insta_color.svg")}}" alt="call" />
   <img class="social" src="{{asset("images/facebook_color.svg")}}" alt="call" />
 </div>
