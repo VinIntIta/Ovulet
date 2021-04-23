@@ -1,19 +1,17 @@
 const $ = require("jquery");
 const datepicker = require("jquery-ui/ui/widgets/datepicker.js");
 const configureDatepicker = require("./configureDatepicker");
-const validator = require("jquery-validation");
 const configureValidator = require("./configureValidator");
 const {monthNames} = require("./monthNames");
 const {getNumDaysToPrevCycle, getNumDaysInMonth, getFirstDayPos} = require("./helpers");
 
 $(document).ready(function(){
-  let pageVersion = $(".calendarContainer").hasClass("mobile") ? "mobile" : "desktop";
-  configureValidator(pageVersion);
+  populateMobileSelectors();
   configureDatepicker();
   let currDate = new Date();
   setMonthYearToShow(currDate);
   buildCalendar(currDate);
-  populateMobileSelectors();
+
 });
 
 let populateMobileSelectors = function(){
@@ -35,23 +33,6 @@ let populateMobileSelectors = function(){
   $(".calendarContainer.mobile #year").append("<option value=" + (year - 1) + ">" + (year - 1) + "</option>");
 }
 
-let mobileDateIsCorrect = function(){
-  let day = $("#day").children("option:selected").val();
-  let month = $("#month").children("option:selected").val();
-  let year = $("#year").children("option:selected").val();
-
-  if(day == "" || month == "" || year == "") return false;
-
-  day = parseInt(day, 10);
-  month = parseInt(month, 10);
-  year = parseInt(year, 10);
-
-  let numDaysInMonth = new Date(year, month - 1, 1);
-  if(day > numDaysInMonth) return false;
-
-  return true;
-}
-
 let getPrevCycleStartDate = function(){
   let day = $("#day").children("option:selected").val();
   let month = $("#month").children("option:selected").val();
@@ -67,13 +48,14 @@ let getPrevCycleStartDate = function(){
 }
 
 $(".calculateCalendar button").on("click", ()=>{
-
+  let pageVersion = $(".calendarContainer").hasClass("mobile") ? "mobile" : "desktop";
+  configureValidator(pageVersion);
   if( !$("form[name=settings]").valid() ) return;
 
   let prevCycleStart = $(".datepickerHidden").val() ? new Date($(".datepickerHidden").val()) : getPrevCycleStartDate();
   let cycleDuration = $("#cycleDuration").children("option:selected").val();
   let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
-console.log(prevCycleStart);
+
   cycleDuration = parseInt(cycleDuration, 10);
   menstruationDuration = parseInt(menstruationDuration, 10);
 
