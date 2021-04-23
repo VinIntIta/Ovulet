@@ -1,3 +1,5 @@
+const $ = require("jquery");
+
 // Login popup
 $('#loginModal').on('show.bs.modal');
 

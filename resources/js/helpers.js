@@ -1,6 +1,6 @@
 let getNumDaysToPrevCycle = function(prevCycleStart){
   let msInDay = 24*60*60*1000;
-  let prev = new Date(prevCycleStart).valueOf();
+  let prev = prevCycleStart.valueOf();//prevCycleStart is a Date object
   let today = new Date().valueOf();
   return Math.floor( (today - prev)/msInDay );
 }

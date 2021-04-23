@@ -52,14 +52,28 @@ let mobileDateIsCorrect = function(){
   return true;
 }
 
+let getPrevCycleStartDate = function(){
+  let day = $("#day").children("option:selected").val();
+  let month = $("#month").children("option:selected").val();
+  let year = $("#year").children("option:selected").val();
+
+  if(day == "" || month == "" || year == "") return null;
+
+  day = parseInt(day, 10);
+  month = parseInt(month, 10);
+  year = parseInt(year, 10);
+
+  return new Date(year, month, day);
+}
+
 $(".calculateCalendar button").on("click", ()=>{
 
   if( !$("form[name=settings]").valid() ) return;
 
-  let prevCycleStart = $(".datepickerHidden").val();
+  let prevCycleStart = $(".datepickerHidden").val() ? new Date($(".datepickerHidden").val()) : getPrevCycleStartDate();
   let cycleDuration = $("#cycleDuration").children("option:selected").val();
   let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
-
+console.log(prevCycleStart);
   cycleDuration = parseInt(cycleDuration, 10);
   menstruationDuration = parseInt(menstruationDuration, 10);
 
