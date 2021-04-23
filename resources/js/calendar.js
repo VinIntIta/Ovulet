@@ -4,7 +4,6 @@ const configureDatepicker = require("./configureDatepicker");
 const validator = require("jquery-validation");
 const configureValidator = require("./configureValidator");
 const {monthNames} = require("./monthNames");
-
 const {getNumDaysToPrevCycle, getNumDaysInMonth, getFirstDayPos} = require("./helpers");
 
 $(document).ready(function(){
@@ -108,11 +107,9 @@ $("monthSelector .prev").on("click", ()=>{
     date = new Date(prevYear, prevMonth, prevMonthOvulationDate);//prev month ovulation date
 
     let firstDayPos = getFirstDayPos(cycleDuration, date);
-
     firstDayPos = parseInt(firstDayPos, 10);
 
     buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
-
     return;
   }
   buildCalendar(date);
@@ -142,11 +139,9 @@ $("monthSelector .next").on("click", ()=>{
     date = new Date(nextYear, nextMonth, nextMonthOvulationDate);//next month ovulation date
 
     let firstDayPos = getFirstDayPos(cycleDuration, date);
-
     firstDayPos = parseInt(firstDayPos, 10);
 
     buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
-
     return;
   }
   buildCalendar(date);
