@@ -59,7 +59,7 @@
               </div>
 
               <div class="formInput calculateCalendar">
-                <button type="submit">Розрахувати</button>
+                <button type="button">Розрахувати</button>
               </div>
             </form>
           </section><!--settnigs end-->
