@@ -8,6 +8,6 @@ class CalendarController extends Controller
 {
     public function showCalendar(){
       if (isMobile()) return view("calendarPageMobile");
-      return view("calendarPageMobile");
+      return view("calendarPage");
     }
 }

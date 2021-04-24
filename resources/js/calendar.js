@@ -11,7 +11,6 @@ $(document).ready(function(){
   let currDate = new Date();
   setMonthYearToShow(currDate);
   buildCalendar(currDate);
-
 });
 
 let populateMobileSelectors = function(){
@@ -61,7 +60,7 @@ $(".calculateCalendar button").on("click", ()=>{
   configureValidator(pageVersion);
 
   if( !$("form[name=settings]").valid() ) return;
-console.log("ok");
+
   let prevCycleStart = $(".datepickerHidden").val() ? new Date($(".datepickerHidden").val()) : getPrevCycleStartDate();
   let cycleDuration = $("#cycleDuration").children("option:selected").val();
   let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
@@ -92,7 +91,7 @@ console.log("ok");
 $(".monthSelector .prev").on("click", ()=>{
   let currMonth = $(".monthYear").data("month");
   let currYear = $(".monthYear").data("year");
-  
+
   let prevMonth = currMonth === 0 ? 11 : currMonth - 1;
   let prevYear = currMonth === 0 ? currYear - 1 : currYear;
   let date = new Date(prevYear, prevMonth, 1);

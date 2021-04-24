@@ -23,11 +23,9 @@ export const validationRules = {
       max: parseInt(new Date().getFullYear(), 10)
     },
     prevCycleStart: {
-      //required: true,
       date: true,
       dateIsValid: true,
       dateIsNotFuture: true
-
     }
   }
 }

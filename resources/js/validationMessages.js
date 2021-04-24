@@ -23,7 +23,6 @@ export const validationMessages = {
       max: `Максимально допустиме значення ${parseInt(new Date().getFullYear(), 10)}`,
     },
     prevCycleStart: {
-      //required: "Будь ласка оберіть дату",
       date: "Оберіть день місяць і рік",
       dateIsNotFuture: "Не можна обирати майбутні дати",
       dateIsValid: "Обрана дата не коректна"
