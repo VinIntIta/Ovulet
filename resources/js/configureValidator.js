@@ -11,6 +11,7 @@ module.exports = function configureValidator(pageVersion){//pageVersion can be d
       return false;
     },
     ignore: "",
+    onfocusout: true
   });
 
 
