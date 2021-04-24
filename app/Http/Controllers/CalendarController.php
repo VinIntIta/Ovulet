@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+include (app_path()."/includes/detectMobile.php");
 
 class CalendarController extends Controller
 {
-    //
+    public function showCalendar(){
+      if (isMobile()) return view("calendarPageMobile");
+      return view("calendarPage");
+    }
 }

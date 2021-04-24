@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\CalendarController;
 
 
 /*
@@ -32,6 +33,4 @@ require __DIR__.'/auth.php';
 Route::get("/payment", [PaymentController::class, "showPayment"]);
 Route::post("/payment", [PaymentController::class, "processPayment"]);
 
-Route::get("/calendar", function(){
-  return view("calendarPageMobile");
-});
+Route::get("/calendar", [CalendarController::class, "showCalendar"]);
