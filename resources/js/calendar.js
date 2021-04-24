@@ -47,11 +47,21 @@ let getPrevCycleStartDate = function(){
   return new Date(year, month, day);
 }
 
+$("#day, #month, #year").on("change", ()=>{
+  let day = $("#day").children("option:selected").val();
+  let month = $("#month").children("option:selected").val();
+  let year = $("#year").children("option:selected").val();
+  let value = `${year}/${month}/${day}`;
+  $(".datepickerHidden").attr("value", value);
+  $(".prevCycle label").removeClass("error");
+})
+
 $(".calculateCalendar button").on("click", ()=>{
   let pageVersion = $(".calendarContainer").hasClass("mobile") ? "mobile" : "desktop";
   configureValidator(pageVersion);
-  if( !$("form[name=settings]").valid() ) return;
 
+  if( !$("form[name=settings]").valid() ) return;
+console.log("ok");
   let prevCycleStart = $(".datepickerHidden").val() ? new Date($(".datepickerHidden").val()) : getPrevCycleStartDate();
   let cycleDuration = $("#cycleDuration").children("option:selected").val();
   let menstruationDuration = $("#menstruationDuration").children("option:selected").val();

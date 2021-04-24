@@ -11,34 +11,29 @@ module.exports = function configureValidator(pageVersion){//pageVersion can be d
       return false;
     },
     ignore: "",
-    onfocusout: true
+    focusCleanup: true
   });
 
 
-  $.validator.addMethod("selectedDateIsOk", function(value, element){
+  $.validator.addMethod("dateIsNotFuture", function(value, element){
     let currDate = new Date();
     let selectedDate = new Date(value);
-
-    let currDay = currDate.getDate();
-    let selectedDay = selectedDate.getDate();
-
-    let currYear = parseInt(currDate.getFullYear(), 10);
-    let currMonth = parseInt(currDate.getMonth() + 1, 10);
-
-    let selectedYear = parseInt(selectedDate.getFullYear(), 10);
-    let selectedMonth = parseInt(selectedDate.getMonth() + 1, 10);
 
     return this.optional(element) ||
       ( ( parseInt(currDate.valueOf(), 10) - parseInt(selectedDate.valueOf(), 10) ) >= 0 );
 
-  }, "Обрана дата не коректна");
+  }, "Не можна обирати майбутні дати");
 
 
-  //prevent user from selecting days like 31/02/2020 in mobile version of calendar
+  //prevent user from making dates like 31/02/2020 in mobile version of calendar
   $.validator.addMethod("dateIsValid", function(value, element){
-    let day = $("#day").children("option:selected").val();
-    let month = $("#month").children("option:selected").val();
-    let year = $("#year").children("option:selected").val();
+    let dateElements = value.split("/");
+    if(dateElements.length != 3) return false;
+
+    let year = dateElements[0];
+    let month = dateElements[1];
+    let day = dateElements[2];
+
 
     day = parseInt(day, 10);
     month = parseInt(month, 10);
@@ -46,7 +41,7 @@ module.exports = function configureValidator(pageVersion){//pageVersion can be d
 
     let numDaysInMonth = parseInt(new Date(year, month, 0).getDate(), 10);
     if(day > numDaysInMonth) return false;
-
+console.log("day " + day + " numDaysInMonth " + numDaysInMonth);
     return true;
   }, "Обрана дата не коректна");
 }

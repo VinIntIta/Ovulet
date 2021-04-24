@@ -3,7 +3,7 @@ export const validationRules = {
     prevCycleStart: {
       required: true,
       date: true,
-      selectedDateIsOk: true
+      dateIsNotFuture: true
     }
   },
   mobile: {
@@ -11,7 +11,6 @@ export const validationRules = {
       required: true,
       min: 1,
       max: 31,
-      dateIsValid: true
     },
     month: {
       required: true,
@@ -22,6 +21,12 @@ export const validationRules = {
       required: true,
       min: parseInt(new Date().getFullYear(), 10) - 1,
       max: parseInt(new Date().getFullYear(), 10)
+    },
+    prevCycleStart: {
+      //required: true,
+      date: true,
+      dateIsNotFuture: true,
+      dateIsValid: true
     }
   }
 }

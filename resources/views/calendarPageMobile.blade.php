@@ -29,6 +29,9 @@
           <section class="settings">
             <h2>Перший день останньої менструації:</h2>
             <form name="settings">
+              <div class="prevCycle">
+                <input class="datepickerHidden" name="prevCycleStart" value="" type="hidden" autocomplete="off">
+              </div>
               <div class="formInput">
                 <legend>День</legend>
                 <div class="dropdown">

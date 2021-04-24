@@ -194,4 +194,9 @@
   label.error {
     text-align: center;
   }
+
+  .prevCycle label.error {
+    display: block;
+    position: static;
+  }
 }
