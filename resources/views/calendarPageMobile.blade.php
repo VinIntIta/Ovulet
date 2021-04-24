@@ -109,6 +109,12 @@
               <button type="submit" form="settings">Розрахувати</button>
             </div>
 
+            <section class="monthSelector">
+              <div class="prev"></div>
+              <div class="monthYear"></div>
+              <div class="next"></div>
+            </section>
+
             <table>
               <thead>
                 <tr>

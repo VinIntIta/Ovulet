@@ -89,10 +89,10 @@ console.log("ok");
   buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
 });
 
-$("monthSelector .prev").on("click", ()=>{
+$(".monthSelector .prev").on("click", ()=>{
   let currMonth = $(".monthYear").data("month");
   let currYear = $(".monthYear").data("year");
-
+  
   let prevMonth = currMonth === 0 ? 11 : currMonth - 1;
   let prevYear = currMonth === 0 ? currYear - 1 : currYear;
   let date = new Date(prevYear, prevMonth, 1);
@@ -121,7 +121,7 @@ $("monthSelector .prev").on("click", ()=>{
   buildCalendar(date);
 });
 
-$("monthSelector .next").on("click", ()=>{
+$(".monthSelector .next").on("click", ()=>{
   let currMonth = $(".monthYear").data("month");
   let currYear = $(".monthYear").data("year");
 
