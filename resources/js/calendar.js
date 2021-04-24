@@ -53,7 +53,7 @@ $("#day, #month, #year").on("change", ()=>{
   let year = $("#year").children("option:selected").val();
   let value = `${year}/${month}/${day}`;
   $(".datepickerHidden").attr("value", value);
-  $(".prevCycle label").removeClass("error");
+  $(".prevCycle label").remove();
 })
 
 $(".calculateCalendar button").on("click", ()=>{
