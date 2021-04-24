@@ -25,8 +25,9 @@ export const validationRules = {
     prevCycleStart: {
       //required: true,
       date: true,
-      dateIsNotFuture: true,
-      dateIsValid: true
+      dateIsValid: true,
+      dateIsNotFuture: true
+
     }
   }
 }
