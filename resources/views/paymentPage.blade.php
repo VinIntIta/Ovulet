@@ -55,7 +55,7 @@
                   <img src="./images/paymentPage/mastercard.svg" alt="master card icon">
                 </div>
               </div>
-              <div class="card"><!--card start-->
+              <div class="card_pay"><!--card start-->
                 <div class="frontSide"><!--frontSide start-->
                   <div class="numberGroup">
                     <div class="numberText">Номер карти</div>

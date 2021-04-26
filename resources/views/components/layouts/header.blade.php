@@ -22,7 +22,7 @@
       <div class="col-sm-6">
         <nav class="navbar text-center">
           <span> <a href="#">Про проект </a></span>
-          <span> <a href="#">Календар </a></span>
+          <span> <a href="/calendar">Календар </a></span>
           <!-- <span> <a href="#">Пройти тест </a></span>
           <span> <a href="#">Новини </a></span> -->
           <a href="#">Пройти тест </a>
