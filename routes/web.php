@@ -34,3 +34,4 @@ Route::get("/payment", [PaymentController::class, "showPayment"]);
 Route::post("/payment", [PaymentController::class, "processPayment"]);
 
 Route::get("/calendar", [CalendarController::class, "showCalendar"]);
+Route::post("/calendar", [CalendarController::class, "saveCalendar"]);
