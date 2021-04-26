@@ -163,10 +163,7 @@
     padding: 2em;
   }
 
-  button[type="submit"] {
-    @extend %formControl;
-    @extend %button;
-    text-align: center;
+  button {
     display: block;
     width: 100%;
   }

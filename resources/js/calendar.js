@@ -46,6 +46,10 @@ let getPrevCycleStartDate = function(){
   return new Date(year, month, day);
 }
 
+$("#saveButton").on("colorized", function(){
+  $(this).prop("disabled", false);
+});
+
 $("#day, #month, #year").on("change", ()=>{
   let day = $("#day").children("option:selected").val();
   let month = $("#month").children("option:selected").val();
@@ -192,7 +196,10 @@ let buildCalendar = function(date, pos=null, cycleDuration=null, menstruationDur
   let classToAdd ="";
   let html = "";
 
-  if(pos) $(".ovulationCalendar").addClass("colorized");
+  if(pos) {
+    $(".ovulationCalendar").addClass("colorized")
+    $("#saveButton").trigger("colorized");
+  }
 
   while(row < numWeeks) {
     html += "<tr>";

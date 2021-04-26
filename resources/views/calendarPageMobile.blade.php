@@ -106,7 +106,7 @@
 
           <section class="ovulationCalendar">
             <div class="formInput calculateCalendar">
-              <button type="submit" form="settings">Розрахувати</button>
+              <button type="button" form="settings">Розрахувати</button>
             </div>
 
             <section class="monthSelector">
@@ -129,6 +129,9 @@
               </thead>
               <tbody></tbody>
             </table>
+            <div class="formInput calculateCalendar">
+              <button type="submit" form="settings" id="saveButton" disabled>Зберегти</button>
+            </div>
           </section>
 
           <section class="colorMeaning">
