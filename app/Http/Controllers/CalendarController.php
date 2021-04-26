@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-include (app_path()."/includes/detectMobile.php");
+include_once (app_path()."/includes/detectMobile.php");
 
 class CalendarController extends Controller
 {
