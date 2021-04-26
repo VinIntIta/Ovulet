@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CalendarData extends Model
 {
     use HasFactory;
-    protected table = "calendar_data";
+    protected $table = "calendar_data";
 }

@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Менструальний календар</title>
         <link rel="stylesheet" href="css/styles.css">
     </head>
@@ -29,7 +28,8 @@
 
           <section class="settings">
             <h2>Перший день останньої менструації:</h2>
-            <form name="settings">
+            <form name="settings" id="settingsForm" action="/calendar" method="post">
+              @csrf
               <div class="prevCycle">
                 <input class="datepickerHidden" name="prevCycleStart" value="" type="hidden" autocomplete="off">
               </div>
@@ -107,7 +107,7 @@
 
           <section class="ovulationCalendar">
             <div class="formInput calculateCalendar">
-              <button type="button" form="settings">Розрахувати</button>
+              <button type="button">Розрахувати</button>
             </div>
 
             <section class="monthSelector">
@@ -131,7 +131,7 @@
               <tbody></tbody>
             </table>
             <div class="formInput calculateCalendar">
-              <button type="submit" form="settings" id="saveButton" disabled>Зберегти</button>
+              <button type="submit" form="settingsForm" id="saveButton" disabled>Зберегти</button>
             </div>
           </section>
 

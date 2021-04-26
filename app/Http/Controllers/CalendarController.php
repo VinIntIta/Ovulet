@@ -25,8 +25,9 @@ class CalendarController extends Controller
         $cycle->menstruation_started = $request->menstruation_started;
         $cycle->menstruation_duration = $request->menstruationDuration;
         $cycle->save();
+        return view("calendarPage");
       } else {
-        return view("calendarPage.calendarPage");//should be refactored
+        return view("calendarPage");//should be refactored
           //->with("error", "Будь-ласка увійдіть для того щоб мати можливість зерігати дані Вашого циклу");
       }
     }

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Cycle extends Model
 {
     use HasFactory;
-    protected table = "cycle";
+    protected $table = "cycle";
 }
