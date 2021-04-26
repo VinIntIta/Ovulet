@@ -31,10 +31,12 @@
         <!-- <div>
         </div> -->
       </div>
-      <div id="userDropdown" class="col-sm-2 inline-block">
+
         @if( Auth::check() )
+      <div id="userDropdown" class="col-sm-2 inline-block">
           <div><img src="{{asset("images/Cab.png")}}" alt="call" />{{ Auth::user()->name }}</div>
         @else
+      <div class="col-sm-2 inline-block">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
             Login
           </button>
