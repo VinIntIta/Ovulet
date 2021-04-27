@@ -97,10 +97,15 @@
       display: block;
     }
 
+    legend {
+      color: colors.$darkGray2;
+    }
+
     input,
     select {
       display: block;
       width: 100%;
+      color: colors.$darkGray2;
       background: colors.$white;
       background-image: none;
     }
@@ -158,10 +163,7 @@
     padding: 2em;
   }
 
-  button[type="submit"] {
-    @extend %formControl;
-    @extend %button;
-    text-align: center;
+  button {
     display: block;
     width: 100%;
   }
@@ -181,5 +183,21 @@
     li:last-child {
       padding-bottom: 0;
     }
+  }
+  select.error {
+    border: 1px solid colors.$red;
+  }
+
+  label.error {
+    text-align: center;
+  }
+
+  .prevCycle label.error {
+    display: block;
+    position: static;
+  }
+
+  .monthSelector {
+    justify-content: center;
   }
 }

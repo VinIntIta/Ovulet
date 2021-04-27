@@ -32,241 +32,239 @@
   p {
     margin-bottom: 1em;
   }
-}
 
-/*styles for settings form*/
-.settings {
-  padding-bottom: 1.25em;
-  margin-bottom: 1.667em;
-  border-bottom: 1px solid colors.$lightLightGray;
 
-  form {
+  /*styles for settings form*/
+  .settings {
+    padding-bottom: 1.25em;
+    margin-bottom: 1.667em;
+    border-bottom: 1px solid colors.$lightLightGray;
+
+    form {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+
+      >div:not(:last-child) {
+        margin-right: 1em;
+      }
+    }
+
+    legend {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      font-size: 14px;
+      color: colors.$blueGray;
+      margin-bottom: 0.571em;
+    }
+
+    input,
+    select,
+    button {
+      @extend %formControl;
+    }
+
+    input,
+    select {
+      background: colors.$pink;
+      font-size: 24px;
+      height: 2.292em;
+    }
+
+    input::placeholder {
+      color: colors.$white;
+      opacity: 1;
+      font-size: 24px;
+    }
+
+    input.datepicker {
+      width: 100%;
+      background-image: url("../../images/calendarPage/calendarIcon.svg");
+      background-position: top 50% right 1.3125em;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 0 1.611em;
+    }
+
+    select {
+      appearance: none;
+      background-image: url("../../images/calendarPage/arrowDown.svg");
+      background-position: top 50% right 0.875em;
+      background-repeat: no-repeat;
+      min-width: 5em;
+      cursor: pointer;
+    }
+
+    option:last-child{
+      border-radius: 10px;
+    }
+
+    .formInput {
+      margin-top: 1.817em;
+      position: relative;
+    }
+
+    .prevCycle {
+      min-width: 14.917em;
+    }
+  }/*end of settings form styles*/
+
+  .monthSelector {
+    font-size: 18px;
+    position: relative;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    text-transform: uppercase;
     align-items: center;
+    margin-bottom: 1.25em;
 
-    >div:not(:last-child) {
+    .prev,
+    .next {
+      display: inline-block;
+      width: 2.444em;
+      height: 2.444em;
+      cursor: pointer;
+    }
+
+    .prev {
+      background-image: url("../../images/calendarPage/calendarArrowLeft.svg");
+      background-position: top 50% left 50%;
+      background-repeat: no-repeat;
+    }
+
+    .next {
+      background-image: url("../../images/calendarPage/calendarArrowRight.svg");
+      background-position: top 50% left 50%;
+      background-repeat: no-repeat;
+    }
+
+    .prev:hover{
+      background: rgba(196, 196, 196, 0.2);
+      background-image: url("../../images/calendarPage/calendarArrowLeft.svg");
+      background-position: top 50% left 50%;
+      background-repeat: no-repeat;
+    };
+
+    .next:hover {
+      background: rgba(196, 196, 196, 0.2);
+      background-image: url("../../images/calendarPage/calendarArrowRight.svg");
+      background-position: top 50% left 50%;
+      background-repeat: no-repeat;
+      }
+  }
+
+  .history {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    color: colors.$lightBlue;
+    width: 25.222em;
+    padding-bottom: 4.556em;
+
+    span {
+      display: inline-block;
+      padding-right: 1.278em;
+    }
+
+    div {
+      position: relative;
+      margin-top: 1.667em;
+    }
+
+    &.folded {
+      span {
+        font-weight: 400;
+        background-image: url("../../images/calendarPage/historyBigArrowDown.svg"), url("../../images/calendarPage/historySmallArrowDown.svg");
+        background-position: bottom 20% right 0, bottom calc(20% + 5px) right 3px;
+        background-repeat: no-repeat, no-repeat;
+      }
+    }
+
+    &.unfolded {
+      span {
+        font-weight: 100;
+        color: colors.$darkGray;
+        background-image: url("../../images/calendarPage/historyBigArrowUp.svg"), url("../../images/calendarPage/historySmallArrowUp.svg");
+        background-position: top 40% right 0, top calc(40% + 5px) right 3px;
+        background-repeat: no-repeat, no-repeat;
+      }
+    }
+
+    input[type="text"] {
+      @extend %formControl;
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      font-size: 18px;
+      color: colors.$lightLightGray2;
+      width: 100%;
+      height: 2.778em;
+      background: colors.$lightestGray;
+      border: 1px solid colors.$lightestGray2;
+      border-radius: 2.778em;
+      box-sizing: border-box;
+      cursor: default;
+    }
+
+    button {
+      font-family: "Roboto", sans-serif;
+      font-weight: 300;
+      height: 2.778em;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 2.778em;
+      padding: 0 1em;
+    }
+  }
+
+  .colorMeaning {
+    font-size: 24px;
+    margin-bottom: 4.458em;
+
+    tr:first-child td {
+      padding-bottom: 2.75em;
+    }
+
+    span {
+      display: inline-block;
+    }
+
+    .color {
+      vertical-align: middle;
+      width: 1.458em;
+      height: 1.458em;
+      border-radius: 10px;
       margin-right: 1em;
     }
+
+    .description {
+      vertical-align: middle;
+      margin-right: 3.458em;
+    }
   }
 
-  legend {
+  .explanation {
+    article {
+      width: 35.875em;
+      margin-bottom: 2em;
+    }
+  }
+
+  label.error {
     position: absolute;
-    bottom: 100%;
-    left: 0;
-    font-size: 14px;
-    color: colors.$blueGray;
-    margin-bottom: 0.571em;
-  }
-
-  input,
-  select,
-  button {
-    @extend %formControl;
-  }
-
-  input,
-  select {
-    background: colors.$pink;
-    font-size: 24px;
-    height: 2.292em;
-  }
-
-  input::placeholder {
-    color: colors.$white;
-    opacity: 1;
-    font-size: 24px;
-  }
-
-  input.datepicker {
+    top:100%;
+    top: calc(100% + 0.278em);
+    left:0;
     width: 100%;
-    background-image: url("../../images/calendarPage/calendarIcon.svg");
-    background-position: top 50% right 1.3125em;
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-
-  button {
-    @extend %button;
-    padding: 0 1.611em;
-  }
-
-  select {
-    appearance: none;
-    background-image: url("../../images/calendarPage/arrowDown.svg");
-    background-position: top 50% right 0.875em;
-    background-repeat: no-repeat;
-    min-width: 5em;
-    cursor: pointer;
-  }
-
-  option:last-child{
-    border-radius: 10px;
-  }
-
-  .formInput {
-    margin-top: 1.817em;
-    position: relative;
-  }
-
-  .prevCycle {
-    min-width: 14.917em;
-  }
-}/*end of settings form styles*/
-
-.monthSelector {
-  font-size: 18px;
-  position: relative;
-  display: flex;
-  flex-flow: row nowrap;
-  text-transform: uppercase;
-  align-items: center;
-  margin-bottom: 1.25em;
-
-  .prev,
-  .next {
-    display: inline-block;
-    width: 2.444em;
-    height: 2.444em;
-    cursor: pointer;
-  }
-
-  .prev {
-    background-image: url("../../images/calendarPage/calendarArrowLeft.svg");
-    background-position: top 50% left 50%;
-    background-repeat: no-repeat;
-  }
-
-  .next {
-    background-image: url("../../images/calendarPage/calendarArrowRight.svg");
-    background-position: top 50% left 50%;
-    background-repeat: no-repeat;
-  }
-
-  .prev:hover{
-    background: rgba(196, 196, 196, 0.2);
-    background-image: url("../../images/calendarPage/calendarArrowLeft.svg");
-    background-position: top 50% left 50%;
-    background-repeat: no-repeat;
-  };
-
-  .next:hover {
-    background: rgba(196, 196, 196, 0.2);
-    background-image: url("../../images/calendarPage/calendarArrowRight.svg");
-    background-position: top 50% left 50%;
-    background-repeat: no-repeat;
-    }
-}
-
-.history {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  color: colors.$lightBlue;
-  width: 25.222em;
-  padding-bottom: 4.556em;
-
-  span {
-    display: inline-block;
-    padding-right: 1.278em;
-  }
-
-  div {
-    position: relative;
-    margin-top: 1.667em;
-  }
-
-  &.folded {
-    span {
-      font-weight: 400;
-      background-image: url("../../images/calendarPage/historyBigArrowDown.svg"), url("../../images/calendarPage/historySmallArrowDown.svg");
-      background-position: bottom 20% right 0, bottom calc(20% + 5px) right 3px;
-      background-repeat: no-repeat, no-repeat;
-    }
-  }
-
-  &.unfolded {
-    span {
-      font-weight: 100;
-      color: colors.$darkGray;
-      background-image: url("../../images/calendarPage/historyBigArrowUp.svg"), url("../../images/calendarPage/historySmallArrowUp.svg");
-      background-position: top 40% right 0, top calc(40% + 5px) right 3px;
-      background-repeat: no-repeat, no-repeat;
-    }
-  }
-
-  input[type="text"] {
-    @extend %formControl;
+    text-align: center;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
-    letter-spacing: 0.2em;
-    font-size: 18px;
-    color: colors.$lightLightGray2;
-    width: 100%;
-    height: 2.778em;
-    background: colors.$lightestGray;
-    border: 1px solid colors.$lightestGray2;
-    border-radius: 2.778em;
-    box-sizing: border-box;
-    cursor: default;
+    font-size: 11px;
+    color: #FF0000;
   }
 
-  button {
-    @extend %formControl;
-    @extend %button;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    height: 2.778em;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 2.778em;
-    padding: 0 1em;
-  }
-}
-
-.colorMeaning {
-  font-size: 24px;
-  margin-bottom: 4.458em;
-
-  tr:first-child td {
-    padding-bottom: 2.75em;
-  }
-
-  span {
-    display: inline-block;
-  }
-
-  .color {
-    vertical-align: middle;
-    width: 1.458em;
-    height: 1.458em;
-    border-radius: 10px;
-    margin-right: 1em;
-  }
-
-  .description {
-    vertical-align: middle;
-    margin-right: 3.458em;
-  }
-}
-
-.explanation {
-
-  article {
-    width: 35.875em;
-    margin-bottom: 2em;
-  }
-}
-
-.error {
-  position: absolute;
-  top:100%;
-  top: calc(100% + 0.278em);
-  left:0;
-  width: 100%;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 11px;
-  color: #FF0000;
 }

@@ -37,6 +37,9 @@ services:
       - ovulet
   app:
     build:
+      args:
+        user: ovulet
+        uid: 1000
       context: .
       dockerfile: ./Dockerfile
     container_name: ovulet

@@ -1,7 +1,3 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">
-  Register
-</button>
-
   <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
      <div class="modal-content">

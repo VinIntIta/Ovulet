@@ -1,85 +1,71 @@
 const $ = require("jquery");
 const datepicker = require("jquery-ui/ui/widgets/datepicker.js");
-const validator = require("jquery-validation");
-const {validationRules} = require("./validationRules");
-const {validationMessages} = require("./validationMessages");
-
-const monthNames = ["Січень", "Лютий", "Березень", "Квітень", "Травень",
-  "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"
-];
+const configureDatepicker = require("./configureDatepicker");
+const configureValidator = require("./configureValidator");
+const {monthNames} = require("./monthNames");
+const {getNumDaysToPrevCycle, getNumDaysInMonth, getFirstDayPos} = require("./helpers");
 
 $(document).ready(function(){
-  $("form[name=settings]").validate({
-    rules: validationRules,
-    messages: validationMessages,
-    submitHandler: (form)=>{
-      return false;
-    },
-    ignore: "",
-  });
+  populateMobileSelectors();
+  configureDatepicker();
   let currDate = new Date();
   setMonthYearToShow(currDate);
   buildCalendar(currDate);
+});
 
+let populateMobileSelectors = function(){
   let day = 1;
+  let month = 1;
+  let year = parseInt(new Date().getFullYear(), 10);
+
   while (day <= 31){
       $(".calendarContainer.mobile #day").append("<option value=" + day +">" + day + "</option>");
       day++;
   }
 
-  let month = 1;
   while (month <= 12){
       $(".calendarContainer.mobile #month").append("<option value=" + month +">" + month + "</option>");
       month++;
   }
 
-  let year = parseInt(new Date().getFullYear(), 10);
   $(".calendarContainer.mobile #year").append("<option value=" + year + ">" + year + "</option>");
   $(".calendarContainer.mobile #year").append("<option value=" + (year - 1) + ">" + (year - 1) + "</option>");
+}
 
+let getPrevCycleStartDate = function(){
+  let day = $("#day").children("option:selected").val();
+  let month = $("#month").children("option:selected").val();
+  let year = $("#year").children("option:selected").val();
+
+  if(day == "" || month == "" || year == "") return null;
+
+  day = parseInt(day, 10);
+  month = parseInt(month, 10);
+  year = parseInt(year, 10);
+
+  return new Date(year, month, day);
+}
+
+$("#saveButton").on("colorized", function(){
+  $(this).prop("disabled", false);
 });
 
-$(".settings .datepicker").datepicker({
-  dayNamesMin: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-  firstDay: 1,
-  maxDate: new Date(),
-  monthNames: monthNames,
-  hideIfNoPrevNext: true,
-  prevText: "",
-  nextText: "",
-  dateFormat: "dd.mm.yy",
-  altFormat: "mm/dd/yy",
-  altField: ".datepickerHidden",
-});
-
-$.validator.addMethod("selectedDateIsOk", function(value, element){
-  let currDate = new Date();
-  let selectedDate = new Date(value);
-
-  let currDay = currDate.getDate();
-  let selectedDay = selectedDate.getDate();
-
-  let currYear = parseInt(currDate.getFullYear(), 10);
-  let currMonth = parseInt(currDate.getMonth() + 1, 10);
-
-  let selectedYear = parseInt(selectedDate.getFullYear(), 10);
-  let selectedMonth = parseInt(selectedDate.getMonth() + 1, 10);
-
-  return this.optional(element) ||
-    ( ( parseInt(currDate.valueOf(), 10) - parseInt(selectedDate.valueOf(), 10) ) >= 0 );
-
-
-}, "Обрана дата не коректна");
-
-$(".datepicker").change(function(){
-  if($(".datepickerHidden").val() != "") $(".datepickerHidden").valid()
-});
+$("#day, #month, #year").on("change", ()=>{
+  let day = $("#day").children("option:selected").val();
+  let month = $("#month").children("option:selected").val();
+  let year = $("#year").children("option:selected").val();
+  let value = `${year}/${month}/${day}`;
+  $(".datepickerHidden").attr("value", value);
+  $(".prevCycle label").remove();
+})
 
 $(".calculateCalendar button").on("click", ()=>{
+  let pageVersion = $(".calendarContainer").hasClass("mobile") ? "mobile" : "desktop";
+  configureValidator(pageVersion);
 
   if( !$("form[name=settings]").valid() ) return;
 
-  let prevCycleStart = $(".datepickerHidden").val();
+  let prevCycleStart = $(".datepickerHidden").val() ? new Date($(".datepickerHidden").val()) : getPrevCycleStartDate();
   let cycleDuration = $("#cycleDuration").children("option:selected").val();
   let menstruationDuration = $("#menstruationDuration").children("option:selected").val();
 
@@ -106,7 +92,7 @@ $(".calculateCalendar button").on("click", ()=>{
   buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
 });
 
-$(".prev").on("click", ()=>{
+$(".monthSelector .prev").on("click", ()=>{
   let currMonth = $(".monthYear").data("month");
   let currYear = $(".monthYear").data("year");
 
@@ -130,17 +116,15 @@ $(".prev").on("click", ()=>{
     date = new Date(prevYear, prevMonth, prevMonthOvulationDate);//prev month ovulation date
 
     let firstDayPos = getFirstDayPos(cycleDuration, date);
-
     firstDayPos = parseInt(firstDayPos, 10);
 
     buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
-
     return;
   }
   buildCalendar(date);
 });
 
-$(".next").on("click", ()=>{
+$(".monthSelector .next").on("click", ()=>{
   let currMonth = $(".monthYear").data("month");
   let currYear = $(".monthYear").data("year");
 
@@ -164,41 +148,13 @@ $(".next").on("click", ()=>{
     date = new Date(nextYear, nextMonth, nextMonthOvulationDate);//next month ovulation date
 
     let firstDayPos = getFirstDayPos(cycleDuration, date);
-
     firstDayPos = parseInt(firstDayPos, 10);
 
     buildCalendar(date, firstDayPos, cycleDuration, menstruationDuration);
-
     return;
   }
   buildCalendar(date);
 });
-
-let getNumDaysToPrevCycle = function(prevCycleStart){
-  let msInDay = 24*60*60*1000;
-  let prev = new Date(prevCycleStart).valueOf();
-  let today = new Date().valueOf();
-  return Math.floor( (today - prev)/msInDay );
-}
-
-let getNumDaysInMonth = function(date){
-  let dateCopy = new Date(date.getTime());
-  let year = dateCopy.getFullYear();
-  let month = dateCopy.getMonth() + 1;
-
-  return parseInt(new Date(year, month, 0).getDate(), 10);
-}
-
-let getFirstDayPos = function(cycleDuration, nextOvulationStartDate){
-  let dateCopy = new Date(nextOvulationStartDate.getTime());
-  let nextOvulationStart = dateCopy.getDate();
-  nextOvulationStart = parseInt(nextOvulationStart, 10);
-
-  let daysInMonth = getNumDaysInMonth(dateCopy);
-  let numFullCycles = Math.floor(nextOvulationStart/cycleDuration);
-
-  return cycleDuration - (nextOvulationStart - numFullCycles*cycleDuration - 1) + 1;
-}
 
 let setMonthYearToShow = function(date){
   let month = date.getMonth();
@@ -210,7 +166,6 @@ let setMonthYearToShow = function(date){
 }
 
 let buildCalendar = function(date, pos=null, cycleDuration=null, menstruationDuration=null) {
-  //console.log(13+ menstruationDuration);
   let calendar = $(".ovulationCalendar tbody");
   calendar.html("");
   let numDaysInMonth = getNumDaysInMonth(date);
@@ -241,7 +196,10 @@ let buildCalendar = function(date, pos=null, cycleDuration=null, menstruationDur
   let classToAdd ="";
   let html = "";
 
-  if(pos) $(".ovulationCalendar").addClass("colorized");
+  if(pos) {
+    $(".ovulationCalendar").addClass("colorized")
+    $("#saveButton").trigger("colorized");
+  }
 
   while(row < numWeeks) {
     html += "<tr>";
