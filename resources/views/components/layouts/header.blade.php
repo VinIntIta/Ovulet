@@ -35,6 +35,7 @@
         @if( Auth::check() )
       <div id="userDropdown" class="col-sm-2 inline-block">
           <div><img src="{{asset("images/Cab.png")}}" alt="call" />{{ Auth::user()->name }}</div>
+          <x-user.user-options-dropdown/>
         @else
       <div class="col-sm-2 inline-block">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
@@ -45,7 +46,6 @@
           </button>
           <x-auth.auth-combined/>
         @endif
-      <x-user.user-options-dropdown/>
       </div>
     </div>
   </div>
