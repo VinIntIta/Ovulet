@@ -189,8 +189,8 @@
       </div>
   </div>
 <!-- and card -->
-<div class="container">
-  <button type="button" class="more">Показати більше статтей</button>
+<div class="container" >
+  <button type="button" class="more_articles">Показати більше статтей</button>
 </div>
 </div>
 
