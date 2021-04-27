@@ -16,7 +16,7 @@ $(function () {
             },
             url: "/login",
             data: formData,
-            success: () => window.location.assign("/dashboard"),
+            success: () => window.location.assign("/"),
             error: (response) => {
         if(response.status === 422) {
             let errors = response.responseJSON.errors;
@@ -51,7 +51,7 @@ $(function () {
     },
     url: "/register",
     data: formData,
-    success: () => window.location.assign("/dashboard"),
+    success: () => window.location.assign("/"),
     error: (response) => {
         if(response.status === 422) {
             let errors = response.responseJSON.errors;
