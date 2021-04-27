@@ -87,7 +87,6 @@
     }
 
     button {
-      @extend %button;
       padding: 0 1.611em;
     }
 
@@ -211,8 +210,6 @@
     }
 
     button {
-      @extend %formControl;
-      @extend %button;
       font-family: "Roboto", sans-serif;
       font-weight: 300;
       height: 2.778em;

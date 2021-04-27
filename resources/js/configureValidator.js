@@ -7,9 +7,6 @@ module.exports = function configureValidator(pageVersion){//pageVersion is a str
   $("form[name=settings]").validate({
     rules: validationRules[pageVersion],
     messages: validationMessages[pageVersion],
-    submitHandler: (form)=>{
-      return false;
-    },
     ignore: "",
     focusCleanup: true
   });

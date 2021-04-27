@@ -28,7 +28,8 @@
 
           <section class="settings">
             <h2>Перший день останньої менструації:</h2>
-            <form name="settings">
+            <form name="settings" id="settingsForm" action="/calendar" method="post">
+              @csrf
               <div class="prevCycle">
                 <input class="datepickerHidden" name="prevCycleStart" value="" type="hidden" autocomplete="off">
               </div>
@@ -106,7 +107,7 @@
 
           <section class="ovulationCalendar">
             <div class="formInput calculateCalendar">
-              <button type="submit" form="settings">Розрахувати</button>
+              <button type="button">Розрахувати</button>
             </div>
 
             <section class="monthSelector">
@@ -129,6 +130,9 @@
               </thead>
               <tbody></tbody>
             </table>
+            <div class="formInput calculateCalendar">
+              <button type="submit" form="settingsForm" id="saveButton" disabled>Зберегти</button>
+            </div>
           </section>
 
           <section class="colorMeaning">

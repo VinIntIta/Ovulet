@@ -48,16 +48,26 @@ li {
   }
 }
 
-%button {
+button {
   background: colors.$red;
   font-size: 18px;
   height: 3.056em;
   padding: 0 0.556em;
   box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
   cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 30px;
+  color: colors.$white;
 }
 
 button:hover {
   background: #FF1B51;
   box-shadow: 0px 15px 70px rgba(255, 53, 53, 0.25);
+}
+
+button:disabled {
+  background: colors.$gray;
+  box-shadow: none;
+  cursor: default;
 }
