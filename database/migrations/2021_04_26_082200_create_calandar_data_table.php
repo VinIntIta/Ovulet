@@ -23,7 +23,7 @@ class CreateCalandarDataTable extends Migration
                 ->on("users")
                 ->onUpdate("cascade")
                 ->onDelete("cascade");
-              $table->timestamp("date");
+              $table->date("date")->nullable();;
               $table->boolean("pills");
               $table->boolean("excercise");
               $table->boolean("intercourse");
@@ -52,7 +52,7 @@ class CreateCalandarDataTable extends Migration
             });
           } else {
             $foreignKeys = listTableForeignKeys("calendar_data");
-            if(!in_array("user_id_foreign", $foreignKeys)){
+            if(!in_array("calendar_data_user_id_foreign", $foreignKeys)){
               Schema::table("calendar_data", function(Blueprint $table){
                 $table->foreign("user_id")
                   ->references("id")
@@ -64,7 +64,7 @@ class CreateCalandarDataTable extends Migration
           }
           if(!Schema::hasColumn("calendar_data", "date")){
             Schema::table("calendar_data", function(Blueprint $table){
-              $table->timestamp("date");
+              $table->date("date")->nullable();
             });
           }
           if(!Schema::hasColumn("calendar_data", "pills")){

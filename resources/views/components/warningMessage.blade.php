@@ -1,1 +1,1 @@
-<div class="alert alert-warning">{{$errorMsg}}</div>
+<div class="alert alert-warning">{{$warningMsg}}</div>

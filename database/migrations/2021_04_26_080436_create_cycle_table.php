@@ -23,7 +23,7 @@ class CreateCycleTable extends Migration
                 ->on("users")
                 ->onUpdate("cascade")
                 ->onDelete("cascade");
-              $table->timestamp("menstruation_started");
+              $table->date("menstruation_started")->nullable();
               $table->unsignedTinyInteger("menstruation_duration");
               $table->timestamps();
           });
@@ -44,7 +44,7 @@ class CreateCycleTable extends Migration
             });
           } else {
             $foreignKeys = listTableForeignKeys("cycle");
-            if(!in_array("user_id_foreign", $foreignKeys)){
+            if(!in_array("cycle_user_id_foreign", $foreignKeys)){
               Schema::table("cycle", function(Blueprint $table){
                 $table->foreign("user_id")
                   ->references("id")
@@ -56,7 +56,7 @@ class CreateCycleTable extends Migration
           }
           if(!Schema::hasColumn("cycle", "menstruation_started")){
             Schema::table("cycle", function(Blueprint $table){
-              $table->timestamp("menstruation_started");
+              $table->date("menstruation_started", "created_at")->nullable();
             });
           }
           if(!Schema::hasColumn("cycle", "menstruation_duration")){

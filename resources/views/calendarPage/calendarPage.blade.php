@@ -14,7 +14,7 @@
         <header style="height: 200px;"></header>
 
     		<div class="calendarContainer">
-          @if(@isset($warningMsg))<x-warningMessage :errorMsg=$warningMsg/>@endif
+          @if(@isset($warningMsg))<x-warningMessage :warningMsg="$warningMsg"/>@endif
           <h1>Менструальний календар</h1>
 
           <section class="settings">
