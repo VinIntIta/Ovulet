@@ -15,6 +15,7 @@
 
     		<div class="calendarContainer mobile">
           <nav class="breadcrump"></nav>
+          @if(@isset($warningMsg))<x-warninghMessage :$warningMsg=$warningMsg/>@endif
           <div class=splashImg>
             <img src="../images/calendarPage/smilingGirl.jpg">
           </div>

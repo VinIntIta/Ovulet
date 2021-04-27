@@ -10,8 +10,8 @@ include_once (app_path()."/includes/detectMobile.php");
 class CalendarController extends Controller
 {
     public function showCalendar(){
-      if (isMobile()) return view("calendarPageMobile");
-      return view("calendarPage");
+      if (isMobile()) return view("calendarPage.calendarPageMobile");
+      return view("calendarPage.calendarPage");
     }
 
     public function saveCalendar(Request $request){
@@ -25,10 +25,13 @@ class CalendarController extends Controller
         $cycle->menstruation_started = $request->menstruation_started;
         $cycle->menstruation_duration = $request->menstruationDuration;
         $cycle->save();
-        return view("calendarPage");
+        if(isMobile()) return view("calendarPage.calendarPageMobile");
+        return view("calendarPage.calendarPage");
       } else {
-        return view("calendarPage");//should be refactored
-          //->with("error", "Будь-ласка увійдіть для того щоб мати можливість зерігати дані Вашого циклу");
+        if(isMobile()) return view("calendarPage.calendarPageMobile")
+          ->with("warningMsg", "Будь-ласка увійдіть для того щоб мати можливість зберігати дані Вашого циклу");
+        return view("calendarPage.calendarPage")
+          ->with("warningMsg", "Будь-ласка увійдіть для того щоб мати можливість зберігати дані Вашого циклу");
       }
     }
 }
