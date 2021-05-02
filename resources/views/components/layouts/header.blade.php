@@ -51,7 +51,7 @@
           <form method="post" action="{{ route('logout') }}">
             @csrf
             <a href="/"><button class="dropdown-links" type="submit">Вийти</button></a>
-          <form>
+          </form>
         </div>
       </div>
     </div>

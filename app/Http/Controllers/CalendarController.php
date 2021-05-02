@@ -12,7 +12,7 @@ class CalendarController extends Controller
     private $isMobile;
 
     public function __construct(){
-      $this->isMobile = true;//checks if user is on mobile device
+      $this->isMobile = isMobile();//checks if user is on mobile device
     }
 
     public function showCalendar(){
@@ -25,20 +25,25 @@ class CalendarController extends Controller
           "prevCycleStart" => "required|date|max:10",
           "menstruationDuration" => "required|numeric|max:28"
         ]);
-        $intendedToSave = date_create($request->prevCycleStart);
-        $newestSaved = date_create(Cycle::latest()->first()->menstruation_started);
+        $intendedToSaveDate = date_create($request->prevCycleStart);
 
-        if($intendedToSave < $newestSaved){
+        $latestSavedDate = date_create(Cycle::latest()->first()->menstruation_started);
+        $latestSavedDuration = Cycle::latest()->first()->menstruation_duration;
+
+        if($intendedToSaveDate < $latestSavedDate){
           return view("calendarPage.calendarPage", [
             "isMobile" => $this->isMobile,
             "warningMsg" => "Остання збережена дата більша ніж Ви намагаєтесь зберегти"
           ]);
         }
-        $restricted = date_add($intendedToSave, date_interval_create_from_date_string($request->menstruationDuration." days"));//should be refactored
-        if( $newestSaved <= $restricted){
+        
+        $restrictionBound = intval($latestSavedDuration, 10) - 1;
+        $restrictedDate = date_add($latestSavedDate, date_interval_create_from_date_string($restrictionBound." days"));//should be refactored
+
+        if($intendedToSaveDate <= $restrictedDate){
           return view("calendarPage.calendarPage", [
             "isMobile" => $this->isMobile,
-            "warningMsg" => "Згідно останніх збережених даних у Вас йде менструація до ".date_format($restricted, "d/m/Y")//should be shown with error notification
+            "warningMsg" => "Згідно останніх збережених даних у Вас йде менструація до ".date_format($restrictedDate, "d/m/Y")//should be shown with error notification
           ]);
         }
 
