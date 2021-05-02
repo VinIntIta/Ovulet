@@ -1,6 +1,7 @@
-     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-       <div class="modal-dialog" role="document">
+     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+       <div class="modal-dialog">
         <div class="modal-content">
+          <div class="modal-body">
       <div class="authContainer">
         <!-- Session Status -->
         <x-auth.auth-session-status  :status="session('status')" />
@@ -69,6 +70,7 @@
         </form>
 
       </div>
-  </div>
+    </div>
+  </div><!--end of modal contend-->
 </div>
 </div>

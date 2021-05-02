@@ -1,6 +1,7 @@
-  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
+    <div class="modal-dialog">
      <div class="modal-content">
+       <div class="modal-body">
        <div class="authContainer">
 
               <div class="mt-5 mb-5">Реєстрація</div>
@@ -75,7 +76,7 @@
               <x-auth.auth-socialite/>
 
         </div>
-
-        </div>
+      </div>
+      </div><!--end of modal content-->
       </div>
     </div>
