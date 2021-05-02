@@ -6,7 +6,7 @@
 
 	<div class="calendarContainer mobile">
     <nav class="breadcrump"></nav>
-    @if(@isset($warningMsg))<x-warningMessage :warningMsg="$warningMsg"/>@endif
+    @if(@isset($message))<x-message :class="$class" :message="$message"/>@endif
     <div class=splashImg>
       <img src="../images/calendarPage/smilingGirl.jpg">
     </div>

@@ -33,17 +33,19 @@ class CalendarController extends Controller
         if($intendedToSaveDate < $latestSavedDate){
           return view("calendarPage.calendarPage", [
             "isMobile" => $this->isMobile,
-            "warningMsg" => "Остання збережена дата більша ніж Ви намагаєтесь зберегти"
+            "message" => "Остання збережена дата більша ніж Ви намагаєтесь зберегти",
+            "class" => "alert alert-danger"
           ]);
         }
-        
+
         $restrictionBound = intval($latestSavedDuration, 10) - 1;
-        $restrictedDate = date_add($latestSavedDate, date_interval_create_from_date_string($restrictionBound." days"));//should be refactored
+        $restrictedDate = date_add($latestSavedDate, date_interval_create_from_date_string($restrictionBound." days"));
 
         if($intendedToSaveDate <= $restrictedDate){
           return view("calendarPage.calendarPage", [
             "isMobile" => $this->isMobile,
-            "warningMsg" => "Згідно останніх збережених даних у Вас йде менструація до ".date_format($restrictedDate, "d/m/Y")//should be shown with error notification
+            "message" => "Згідно останніх збережених даних у Вас йде менструація до ".date_format($restrictedDate, "d/m/Y"),
+            "class" => "alert alert-danger"
           ]);
         }
 
@@ -53,12 +55,17 @@ class CalendarController extends Controller
         $cycle->menstruation_duration = $request->menstruationDuration;
         $cycle->save();
 
-        return view("calendarPage.calendarPage")->with("isMobile", $this->isMobile);//should add succes notification
+        return view("calendarPage.calendarPage", [
+          "isMobile" => $this->isMobile,
+          "class" => "alert alert-success",
+          "message" => "Дані успішно збережені"
+        ]);
 
       } else {
         return view("calendarPage.calendarPage", [
           "isMobile" => $this->isMobile,
-          "warningMsg" => "Будь-ласка увійдіть для того щоб мати можливість зберігати дані Вашого циклу"
+          "class" => "alert alert-warning",
+          "message" => "Будь-ласка увійдіть для того щоб мати можливість зберігати дані Вашого циклу"
         ]);
       }
     }

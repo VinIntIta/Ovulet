@@ -1,6 +1,3 @@
-@php
-  $warningMsg = isset($warningMsg) ? $warningMsg : null;
-@endphp
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +8,9 @@
     <x-layouts.header/>
   	<div>
       @if(@isset($isMobile))
-        <x-calendar.calendarPageMobile :warningMsg="$warningMsg"/>
+        <x-calendar.calendarPageMobile message="{{$message ?? ''}}" class="{{$class ?? ''}}"/>
       @else
-        <x-calendar.calendarPageDesktop :warningMsg="$warningMsg"/>
+        <x-calendar.calendarPageDesktop message="{{$message ?? ''}}" class="{{$class ?? ''}}"/>
       @endif
     </div>
     <x-layouts.footer/>
