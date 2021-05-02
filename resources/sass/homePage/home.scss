@@ -1,12 +1,13 @@
-.calendar.home {/* .slogan {
+/* .slogan {
 
-    font-family: Bauhaus 93;
-  font-size: 18px;
-  line-height: 26px;
+  font-family: Bauhaus 93;
+font-size: 18px;
+line-height: 26px;
 
-  color: #C9C9C9;
+color: #C9C9C9;
 
-  } */
+} */
+.home {
   body {
     font-size: 18px;
     background: url(/images/background.jpg);
@@ -131,6 +132,37 @@
    justify-content: space-around;
    align-items: right;
 
+   }
+   button.test {
+     width: 285px;
+     height: 80px;
+     background: #FF3062;
+     color: #FFFFFF;
+  box-shadow: 0px 4px 20px rgba(255, 53, 53, 0.25);
+  border-radius: 50px;
+   }
+
+   button.more {
+     width: 166px;
+  height: 46.6px;
+  /* left: 882px;
+  top: 3403px; */
+  color: #FFFFFF;
+  background: #FF3062;
+  box-shadow: 0px 4px 20px rgba(255, 53, 53, 0.25);
+  border-radius: 50px;
+   }
+
+   button.more_articles {
+     width: 331px;
+   height: 50px;
+   /* left: 882px;
+   top: 3403px; */
+   align-items: center;
+   color: #FFFFFF;
+   background: #FF3062;
+   box-shadow: 0px 4px 20px rgba(255, 53, 53, 0.25);
+   border-radius: 50px;
    }
 
   body div.era img{
