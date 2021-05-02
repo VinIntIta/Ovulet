@@ -9,9 +9,14 @@ include_once (app_path()."/Includes/detectMobile.php");
 
 class CalendarController extends Controller
 {
+    private $isMobile;
+
+    public function __construct(){
+      $this->isMobile = true;//checks if user is on mobile device
+    }
+
     public function showCalendar(){
-      if (isMobile()) return view("calendarPage.calendarPageMobile");
-      return view("calendarPage.calendarPageMobile");
+      return view("calendarPage.calendarPage")->with("isMobile", $this->isMobile);
     }
 
     public function saveCalendar(Request $request){
@@ -24,27 +29,32 @@ class CalendarController extends Controller
         $newestSaved = date_create(Cycle::latest()->first()->menstruation_started);
 
         if($intendedToSave < $newestSaved){
-          return view("calendarPage.calendarPageMobile")//should be refactored
-            ->with("warningMsg", "Остання збережена дата більша ніж Ви намагаєтесь зберегти");
+          return view("calendarPage.calendarPage", [
+            "isMobile" => $this->isMobile,
+            "warningMsg" => "Остання збережена дата більша ніж Ви намагаєтесь зберегти"
+          ]);
         }
-        $restricted = date_add($intendedToSave, date_interval_create_from_date_string($request->menstruationDuration." days"));
+        $restricted = date_add($intendedToSave, date_interval_create_from_date_string($request->menstruationDuration." days"));//should be refactored
         if( $newestSaved <= $restricted){
-          return view("calendarPage.calendarPageMobile")//should be refactored
-            ->with( "warningMsg", "Згідно останніх збережених даних у Вас йде менструація до ".date_format($restricted, "d/m/Y") );
+          return view("calendarPage.calendarPage", [
+            "isMobile" => $this->isMobile,
+            "warningMsg" => "Згідно останніх збережених даних у Вас йде менструація до ".date_format($restricted, "d/m/Y")//should be shown with error notification
+          ]);
         }
+
         $cycle = new Cycle;
         $cycle->user_id = Auth::id();
         $cycle->menstruation_started = $request->prevCycleStart;
         $cycle->menstruation_duration = $request->menstruationDuration;
         $cycle->save();
 
-        if(isMobile()) return view("calendarPage.calendarPageMobile");
-        return view("calendarPage.calendarPageMobile");
+        return view("calendarPage.calendarPage")->with("isMobile", $this->isMobile);//should add succes notification
+
       } else {
-        if(isMobile()) return view("calendarPage.calendarPageMobile")
-          ->with("warningMsg", "Будь-ласка увійдіть для того щоб мати можливість зберігати дані Вашого циклу");
-        return view("calendarPage.calendarPage")
-          ->with("warningMsg", "Будь-ласка увійдіть для того щоб мати можливість зберігати дані Вашого циклу");
+        return view("calendarPage.calendarPage", [
+          "isMobile" => $this->isMobile,
+          "warningMsg" => "Будь-ласка увійдіть для того щоб мати можливість зберігати дані Вашого циклу"
+        ]);
       }
     }
 }
