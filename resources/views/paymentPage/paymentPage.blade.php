@@ -7,14 +7,7 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-      <header style="height: 200px;"></header>
       <div class="content">
-        <div class="paymentCircle"></div>
-        <div class="paymentRectLeftBig"></div>
-        <div class="paymentRectLeftSmall"></div>
-        <div class="paymentRectRightBig"></div>
-        <div class="paymentRectRightSmall"></div>
-
     		<div class="paymentContainer">
     		  <form name="paymentForm" class="paymentForm" method="post" action="{{$url}}" accept-charset="utf-8">
     			 <div class="inputWrapper">

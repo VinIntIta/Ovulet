@@ -1,6 +1,4 @@
 <div class="content">
-  <div class="calendarRectLeftBottom"></div>
-  <div class="calendarRectRightCenter"></div>
   <header style="height: 200px;"></header>
 
 	<div class="calendarContainer">

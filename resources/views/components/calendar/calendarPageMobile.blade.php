@@ -1,11 +1,5 @@
 <div class="content">
-  <div class="calendarMobileRectTopBig"></div>
-  <div class="calendarMobileRectTopSmall"></div>
-
-  <header style="height: 50px;"></header>
-
 	<div class="calendarContainer mobile">
-    <nav class="breadcrump"></nav>
     @if(@isset($message))<x-message :class="$class" :message="$message"/>@endif
     <div class=splashImg>
       <img src="../images/calendarPage/smilingGirl.jpg">
