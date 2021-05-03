@@ -17,6 +17,12 @@ input:focus, textarea:focus, select:focus{
   margin: 0;
 }
 
+body {
+  font-size: 18px;
+  background: url("../images/background.jpg");
+  background-size: 100%;
+}
+
 li {
   list-style: none;
 }
