@@ -7,7 +7,7 @@
   <body>
     <x-layouts.header/>
   	<div>
-      @if(@isset($isMobile))
+      @if($isMobile==true)
         <x-calendar.calendarPageMobile message="{{$message ?? ''}}" class="{{$class ?? ''}}"/>
       @else
         <x-calendar.calendarPageDesktop message="{{$message ?? ''}}" class="{{$class ?? ''}}"/>
