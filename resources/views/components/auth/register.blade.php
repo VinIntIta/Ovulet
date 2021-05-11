@@ -6,7 +6,7 @@
               <div class="mt-5 mb-5">Реєстрація</div>
 
               <div class="text-md mt-5">Вже майете аккаунт?
-                <a href="#loginModal" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Вхід</a>
+                <a href="#loginModal"  data-toggle="modal" data-target="#loginModal">Вхід</a>
               </div>
 
             <div class="separator text-md my-4">або</div>

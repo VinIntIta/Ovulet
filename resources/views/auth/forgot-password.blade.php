@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layouts.app>
 
 
         <!-- Session Status -->
@@ -32,4 +32,4 @@
           </form>
         </div>
 
-</x-app-layout>
+</x-layouts.app>
