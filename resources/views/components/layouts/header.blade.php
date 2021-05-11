@@ -20,6 +20,7 @@
 
 
       <div class="col-sm-6">
+        <div class="main">
         <nav class="navbar text-center">
           <span> <a href="#">Про проект </a></span>
           <span> <a href="/calendar">Календар </a></span>
@@ -30,6 +31,7 @@
        </nav>
         <!-- <div>
         </div> -->
+        </div>
       </div>
 
         @if( Auth::check() )
@@ -40,6 +42,7 @@
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
             Login
           </button>
+          <!-- <a href="loginModal">Вхід </a> -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">
             Register
           </button>

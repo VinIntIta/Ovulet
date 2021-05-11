@@ -3,7 +3,7 @@
 
 
 
-<body>
+<body class="home">
 <!-- Method pap -->
   <div class="container home">
     <div class="row">
