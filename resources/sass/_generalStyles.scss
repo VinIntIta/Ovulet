@@ -1,6 +1,5 @@
 @use "fonts";
 @use "colors";
-@import "./frameworks/bootstrap-4.5.3/bootstrap";
 @import "./frameworks/bootstrap-5.0.0-beta3/bootstrap";
 
 input::-webkit-outer-spin-button,
@@ -18,8 +17,29 @@ input:focus, textarea:focus, select:focus{
   margin: 0;
 }
 
+body {
+  font-size: 18px;
+  background: url("../images/background.jpg");
+  background-size: 100%;
+}
+
 li {
   list-style: none;
+}
+
+h1 {
+  font-size: 51px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 14px;
 }
 
 .textBold {
@@ -70,4 +90,8 @@ button:disabled {
   background: colors.$gray;
   box-shadow: none;
   cursor: default;
+}
+
+.alert {
+  text-align: center;
 }

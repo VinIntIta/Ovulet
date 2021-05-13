@@ -1,6 +1,7 @@
-     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-       <div class="modal-dialog" role="document">
+     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+       <div class="modal-dialog">
         <div class="modal-content">
+          <div class="modal-body">
       <div class="authContainer">
         <!-- Session Status -->
         <x-auth.auth-session-status  :status="session('status')" />
@@ -8,7 +9,7 @@
         <div class="mt-5 mb-5">Вхід</div>
 
         <div class="text-md mt-5">Ще намає аккаунту?
-          <a href="#registerModal"  data-toggle="modal" data-target="#registerModal">Зареєструватись</a>
+          <a href="#registerModal" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Зареєструватись</a>
         </div>
 
       <div class="separator text-md my-4">або</div>
@@ -69,6 +70,7 @@
         </form>
 
       </div>
-  </div>
+    </div>
+  </div><!--end of modal contend-->
 </div>
 </div>

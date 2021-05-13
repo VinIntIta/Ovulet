@@ -1,12 +1,13 @@
-  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
+    <div class="modal-dialog">
      <div class="modal-content">
+       <div class="modal-body">
        <div class="authContainer">
 
               <div class="mt-5 mb-5">Реєстрація</div>
 
               <div class="text-md mt-5">Вже майете аккаунт?
-                <a href="#loginModal"  data-toggle="modal" data-target="#loginModal">Вхід</a>
+                <a href="#loginModal" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Вхід</a>
               </div>
 
             <div class="separator text-md my-4">або</div>
@@ -75,7 +76,7 @@
               <x-auth.auth-socialite/>
 
         </div>
-
-        </div>
+      </div>
+      </div><!--end of modal content-->
       </div>
     </div>

@@ -6,27 +6,35 @@
             Профіль
           </div>
           <div class="row">
-            <div id="profileOptionsButtons" class="col-3 xs p-0" >
-                  <button id="myProfile" class="userOptionsToggle" data-toggle="collapse" data-target="#collapsemyProfile" aria-expanded="false" aria-controls="collapsemyProfile">
-                    Мій профіль
-                  </button>
+            <div id="profileOptionsButtons" class="col-md-3 p-0" >
+                  <div>
+                    <button id="myProfile" class="userOptionsToggle" data-toggle="collapse" data-target="#collapsemyProfile" aria-expanded="false" aria-controls="collapsemyProfile">
+                      Мій профіль
+                    </button>
+                  </div>
                   <button id="myMessages" class="userOptionsToggle" data-toggle="collapse" data-target="#collapsemyMessages" aria-expanded="false" aria-controls="collapsemyMessages">
                     Мої повідомлення
                   </button>
-                  <button id="redactProfile" class="userOptionsToggle" data-toggle="collapse" data-target="#collapseredactProfile" aria-expanded="false" aria-controls="collapseredactProfile">
-                    Редагувати профіль
-                  </button>
-                  <button id="changePassword" class="userOptionsToggle" data-toggle="collapse" data-target="#collapsechangePassword" aria-expanded="false" aria-controls="collapsechangePassword">
-                    Змінити пароль
-                  </button>
-                  <button id="changeAvatar" class="userOptionsToggle" data-toggle="collapse" data-target="#collapsechangeAvatar" aria-expanded="true" aria-controls="collapsechangeAvatar" disabled="disabled">
-                    Змінити аватар
-                  </button>
+                  <div>
+                    <button id="redactProfile" class="userOptionsToggle" data-toggle="collapse" data-target="#collapseredactProfile" aria-expanded="false" aria-controls="collapseredactProfile">
+                      Редагувати профіль
+                    </button>
+                  </div>
+                  <div>
+                    <button id="changePassword" class="userOptionsToggle" data-toggle="collapse" data-target="#collapsechangePassword" aria-expanded="false" aria-controls="collapsechangePassword">
+                      Змінити пароль
+                    </button>
+                  </div>
+                  <div>
+                    <button id="changeAvatar" class="userOptionsToggle" data-toggle="collapse" data-target="#collapsechangeAvatar" aria-expanded="true" aria-controls="collapsechangeAvatar" disabled="disabled">
+                      Змінити аватар
+                    </button>
+                  </div>
             </div>
 
-            <div class="col-9 xs">
+            <div class="col-md-9">
               <div id="profileOptions">
-
+                
                 <div id="collapsemyProfile" class="collapse" aria-labelledby="myProfile" data-parent="#profileOptions">
                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                 </div>

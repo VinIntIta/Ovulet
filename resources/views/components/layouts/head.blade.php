@@ -1,5 +1,5 @@
 <head>
-  <title>home</title>
+  <title>{{config("app.name", "Ovulet")}} @isset($title){{"|"}} {{$title}}@endisset</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf_token" content="{{ csrf_token() }}" />
@@ -8,8 +8,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="{{asset("css/styles.css")}}">
-
-  <link rel="stylesheet" href="{{asset("css/profile.css")}}">
 
   <script defer type="text/javascript" src=/js/app.js></script>
   <style>

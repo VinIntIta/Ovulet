@@ -1,8 +1,10 @@
 @use "./normalize";
 @use "./generalStyles";
+@use "./header";
 @use "./homePage/home";
 @use "./paymentPage/paymentPage";
 @use "./calendarPage/calendarPage";
 @use "./authPages/authPages";
 @use "./cropper/cropper";
 @use "./profilePage/profile";
+@use "./footer";
