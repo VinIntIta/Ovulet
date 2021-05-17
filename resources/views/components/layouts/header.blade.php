@@ -20,7 +20,7 @@
 
 
       <div class="col-sm-6">
-        <div class="main">
+        <div class="main-page">
         <nav class="navbar text-center">
           <span> <a href="#">Про проект </a></span>
           <span> <a href="/calendar">Календар </a></span>

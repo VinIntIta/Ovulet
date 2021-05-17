@@ -110,7 +110,7 @@ header div.nav.navbar text{
   justify-content: space-around;
   align-items: right;
 } */
-div.main a{
+.main-page a{
   width: 106px;
   height: 22px;
   color: #555982;
@@ -118,10 +118,10 @@ div.main a{
   justify-content: space-around;
   align-items: right;
 }
-div.main a:hover{
+.main-page a:hover{
  color: #5F69D3;
  }
-div.main a:active{
+.main-page a:active{
  color: #4954C6;
  }
 
@@ -157,7 +157,7 @@ border-radius: 50px;
  height: 50px;
  /* left: 882px;
  top: 3403px; */
- align-items: center;
+ // align-items: center;
  color: #FFFFFF;
  background: #FF3062;
  box-shadow: 0px 4px 20px rgba(255, 53, 53, 0.25);
