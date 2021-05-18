@@ -39,11 +39,10 @@
           <div><img src="{{asset("images/Cab.png")}}" alt="call" />{{ Auth::user()->name }}</div>
         @else
       <div class="col-sm-2 inline-block">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
             Login
           </button>
-          <!-- <a href="loginModal">Вхід </a> -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
             Register
           </button>
           <x-auth.auth-combined/>
@@ -54,7 +53,7 @@
           <form method="post" action="{{ route('logout') }}">
             @csrf
             <a href="/"><button class="dropdown-links" type="submit">Вийти</button></a>
-          <form>
+          </form>
         </div>
       </div>
     </div>

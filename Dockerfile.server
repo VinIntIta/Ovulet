@@ -1,0 +1,31 @@
+RUN apt-get update && apt-get install -y \
+   zip \
+   unzip \
+   curl
+   
+#Installing Node
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get install -y nodejs
+
+RUN docker-php-ext-install pdo pdo_mysql
+
+#Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+COPY ./docker/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./docker/apache/ports.conf /etc/apache2/ports.conf
+
+RUN a2enmod rewrite
+
+COPY . /var/www
+
+CMD ["apache2-foreground"]
+
+RUN useradd -G www-data,root -u 1000 -d /home/ovulet ovulet
+
+RUN mkdir -p /home/ovulet/.composer && \
+         chown -R ovulet:ovulet /home/ovulet
+
+RUN chown -R ovulet:ovulet /var/www
+
+USER ovulet

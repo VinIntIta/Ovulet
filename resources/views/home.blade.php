@@ -1,9 +1,5 @@
 <x-layouts.app>
-
-
-
-
-<body class="home">
+  <body class="home">
 <!-- Method pap -->
   <div class="container home">
     <div class="row">
@@ -193,11 +189,5 @@
   <button type="button" class="more_articles">Показати більше статтей</button>
 </div>
 </div>
-
 </body>
-
-
-
-
-
 </x-layouts.app>
