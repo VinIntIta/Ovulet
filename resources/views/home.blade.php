@@ -1,17 +1,25 @@
 <x-layouts.app>
+  <body class="home">
 <!-- Method pap -->
   <div class="container home">
     <div class="row">
       <div class="col-sm-4">
 
-        <div class="Method_pap">
-          <h6 class="ovul"> Ovulet сайт для визначення овуляції</h6>
-          <h2 class="met"> методом Папороті</h2>
-          <button type="button" class="test">Пройти тест</button>
-        </div>
-        <!-- <div class="met">
-        </div>   -->
+          <div class="Method_pap">
+            <h6 class="ovul"> Ovulet сайт для визначення овуляції</h6>
+            <h2 class="met"> методом Папороті</h2>
+          </div>
+
+          <br>
+          <br>
+          <br>
+
+          <div>
+              <button type="button" class="test">Пройти тест</button>
+          </div>
+        
       </div>
+
       <div class="col-sm-6">
         <!-- <div class="container"> -->
         <!-- <div> -->
@@ -30,7 +38,7 @@
 <div id="step-block" class="container">
   <div class="row">
     <!-- <div class="stepall"> -->
-      <div class="col-sm-6">
+      <div class="col-md-6">
         <div class="step">
           <div class="container-fluid">
             <img src="{{asset("images/step1.png")}}" class="card-img-top" alt="...">
@@ -40,8 +48,25 @@
             </div>
           </div>
         </div>
+      <!-- </div>
+      <div class="col-sm-6"> -->
+        <div class="step">
+          <div class="container-fluid">
+
+            <img src="{{asset("images/step3.png")}}" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h2 class="card-title">Крок 3<br>Надіслати фото нам</h2>
+              <p class="card-text"> Надіслати фото ви можете у формі оплати тесту, перетягніть фото на ділянку яка вказана на зразку зверху.</p>
+            </div>
+
+
+
+          </div>
+        </div>
       </div>
-      <div class="col-sm-6">
+    <!-- </div>
+    <div class="stepall"> -->
+      <div class="col-md-6">
         <div class="step">
           <div class="container-fluid">
             <img src="{{asset("images/step2.png")}}" class="card-img-top" alt="...">
@@ -49,23 +74,11 @@
               <h2 class="card-title">Крок 2<br>Зробити фото</h2>
               <p class="card-text"> Сфотографувати скло вертикально під освітленням.</p>
             </div>
+
           </div>
         </div>
-      </div>
-    <!-- </div>
-    <div class="stepall"> -->
-      <div class="col-sm-6">
-        <div class="step">
-          <div class="container-fluid">
-            <img src="{{asset("images/step3.png")}}" class="card-img-top" alt="...">
-            <div class="card-body text-center">
-              <h2 class="card-title">Крок 3<br>Надіслати фото нам</h2>
-              <p class="card-text"> Надіслати фото ви можете у формі оплати тесту, перетягніть фото на ділянку яка вказана на зразку зверху.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
+      <!-- </div>
+      <div class="col-sm-6"> -->
         <div class="step">
           <div class="container-fluid">
             <img src="{{asset("images/step4.png")}}" class="card-img-top" alt="...">
@@ -188,5 +201,5 @@
   <button type="button" class="more_articles">Показати більше статтей</button>
 </div>
 </div>
-
+</body>
 </x-layouts.app>
