@@ -29,7 +29,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    // grayscale: 1;
+  }
+  .social a{
     grayscale: 1;
+  }
+
+  .social a:hover{
+    grayscale: 0;
   }
   footer div.item.img social:hover {
     width: 100px;
