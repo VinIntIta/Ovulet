@@ -57,7 +57,7 @@
             </div>
           </div>
 
-            <div>
+            <div class="text-center">
                 <button class="button-std mt-1">
                     {{ __('Log in') }}
                 </button>

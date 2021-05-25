@@ -98,12 +98,12 @@ a{
 }
 
 .button-std {
-  font-size: 24px;
   color: colors.$white;
   border-radius: 50px;
   background: colors.$red;
   box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
-  width: 100%;
+  min-width: 150px;
+  width: auto;
   height: 3.2em;
   cursor: pointer;
 }
@@ -170,7 +170,7 @@ a{
     border-radius: 50px;
     background: colors.$red;
     box-shadow: 0px 5px 5px rgba(255, 48, 98, 0.25);
-    width: 100%;
+    width: auto;
     height: 3.2em;
     cursor: pointer;
   }

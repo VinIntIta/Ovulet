@@ -43,16 +43,35 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
       $userinfo = User::find($id);
-      $cropper = json_decode($request->profileAvatarCropp);
-      $userinfo->avatar_original = $request->file('profileAvatarInput')->store("avatars_original", 'public');
-      $userinfo->avatar = $request->file('profileAvatarInput')->store("avatars", 'public');
-      Image::make(Storage::disk('public')->path($userinfo->avatar))->crop($cropper->width, $cropper->height, $cropper->x, $cropper->y)->save();
-      $userinfo->avatar_original = "storage/" . $userinfo->avatar_original;
-      $userinfo->avatar = "storage/" . $userinfo->avatar;
-
+      if(empty($request->profileAvatarCropp)){
+        if(!empty($request->name)){
+          $request->validate([
+              'name' => 'string|max:255',
+          ]);
+          $userinfo->name = $request->name;
+        }
+        elseif(!empty($request->email)){
+          $request->validate([
+              'email' => 'string|email|max:255|unique:users',
+          ]);
+          $userinfo->email = $request->email;
+        }
+        $userinfo->birth_date = "2011-11-12";
+        $userinfo->save();
+        return ;
+        // dd(gettype($request->birthDate))
+      }
+      else{
+        $cropper = json_decode($request->profileAvatarCropp);
+        $userinfo->avatar_original = $request->file('profileAvatarInput')->store("avatars_original", 'public');
+        $userinfo->avatar = $request->file('profileAvatarInput')->store("avatars", 'public');
+        Image::make(Storage::disk('public')->path($userinfo->avatar))->crop($cropper->width, $cropper->height, $cropper->x, $cropper->y)->save();
+        $userinfo->avatar_original = "storage/". $userinfo->avatar_original;
+        $userinfo->avatar = "storage/". $userinfo->avatar;
+      }
       $userinfo->save();
 
-      return dd($userinfo);
+      return redirect()->back();
     }
 
     /**
