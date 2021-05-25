@@ -1,10 +1,15 @@
 const $ = require("jquery");
 
-$('#userDropdown').click(function(){
-  $(".user-dropdown").show();
+$('#userDropdownLink').click(function(e){
+  if( $("#userDropdown").is(':visible')){
+    $("#userDropdown").hide();
+  }
+  else{
+    $("#userDropdown").show();
+  }
   });
 $(document).on('click', function(e) {
-  if ((!$(e.target).closest('#userDropdown').length) ) {
-      $(".user-dropdown").hide();
+  if ((!$(e.target).closest('#userDropdownLink').length) ) {
+      $("#userDropdown").hide();
   }
 });

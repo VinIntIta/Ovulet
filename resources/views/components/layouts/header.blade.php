@@ -33,26 +33,20 @@
       </div>
 
         @if( Auth::check() )
-      <div id="userDropdown" class="col-sm-2 inline-block">
-          <div><img src="{{asset("images/Cab.png")}}" alt="call" />{{ Auth::user()->name }}</div>
+      <div id="userDropdownLink" class="col-sm-2 inline-block">
+        <div><img class="pr-1" style="width:50px; border-radius:50%;" src="{{asset(Auth::user()->avatar)}}" alt="call" />{{ Auth::user()->name }}</div>
+          <x-user.user-options-dropdown/>
         @else
-      <div class="col-sm-2 inline-block">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Login
-          </button>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
+      <div class="col-sm-2 d-flex inline-block p-2">
+          <div type="button" class="" data-toggle="modal" data-target="#loginModal">
+            Login |
+          </div>
+
+          <div type="button" class="pl-1" data-toggle="modal" data-target="#registerModal">
             Register
-          </button>
+          </div>
           <x-auth.auth-combined/>
         @endif
-        <div class="user-dropdown">
-          <a href="/"><button class="dropdown-links">Мої повідомлення</button></a>
-          <a href="/"><button class="dropdown-links">Редагувати профіль</button></a>
-          <form method="post" action="{{ route('logout') }}">
-            @csrf
-            <a href="/"><button class="dropdown-links" type="submit">Вийти</button></a>
-          </form>
-        </div>
       </div>
     </div>
   </div>

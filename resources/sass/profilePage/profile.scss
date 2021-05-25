@@ -1,0 +1,219 @@
+@use "../colors";
+@use "../generalStyles";
+@use "../calendarPage/datepicker";
+
+.profile-container{
+  font-family: "Museo Sans Cyrl 500";
+  background: #FFF8FF;
+  border-radius: 20px;
+  border-color: red;
+  overflow: hidden;
+
+  .settings {
+    // padding-bottom: 1.25em;
+    // margin-bottom: 1.667em;
+    // border-bottom: 1px solid colors.$lightLightGray;
+
+    form {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+
+      >div:not(:last-child) {
+        margin-right: 1em;
+      }
+    }
+
+    legend {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      font-size: 14px;
+      color: colors.$blueGray;
+      margin-bottom: 0.571em;
+    }
+
+    input,
+    select,
+    button {
+      @extend %formControl;
+    }
+
+    input,
+    select {
+      background: colors.$pink;
+      font-size: 24px;
+      height: 2.292em;
+    }
+
+    input::placeholder {
+      color: colors.$white;
+      opacity: 1;
+      font-size: 24px;
+    }
+
+    input.datepicker {
+      width: 100%;
+      background-image: url("../../images/calendarPage/calendarIcon.svg");
+      background-position: top 50% right 1.3125em;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 0 1.611em;
+    }
+
+    select {
+      appearance: none;
+      background-image: url("../../images/calendarPage/arrowDown.svg");
+      background-position: top 50% right 0.875em;
+      background-repeat: no-repeat;
+      min-width: 5em;
+      cursor: pointer;
+    }
+
+    option:last-child{
+      border-radius: 10px;
+    }
+
+    .formInput {
+      margin-top: 1.817em;
+      position: relative;
+    }
+
+    .prevCycle {
+      min-width: 14.917em;
+    }
+  }
+
+  .info-background-1{
+    background: #F3F3F3;
+  }
+  .info-background-2{
+    background: colors.$white;
+  }
+  .options-buttons{
+    border-right: 2px solid #F3F3F3;
+  }
+
+  .current-avatar{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+  }
+
+  .active{
+    background: #E6F3FF !important;
+  }
+
+  .userOptionsToggle{
+    width: 100%;
+    border-radius: 0;
+    color: #000001;
+    border: none;
+    background-color: inherit;
+    box-shadow: none;
+    text-align: left;
+    padding: 0;
+    padding-left: 2em;
+    padding-right: 1em;
+  }
+  .profile-form{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    .profile-label{
+
+    }
+    .profile-input{
+      background: colors.$white;;
+      border: 1px solid #EEEEEE;
+      box-sizing: border-box;
+      border-radius: 1e+15px;
+      padding-left: 0.5em;
+      height: 3em;
+      width: 100%;
+      }
+    .profile-input:focus{
+      background: colors.$white;;
+      border: 1px solid rgba(140, 198, 63, 0.5);
+      box-sizing: border-box;
+      border-radius: 1e+15px;
+      padding-left: 0.5em;
+      outline-offset: 0px !important;
+      outline: none !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container{
+    padding: 0 !important;
+  }
+  .profile-container{
+    font-family: "Museo Sans Cyrl 500";
+    background: colors.$white;
+    border-radius: 0px;
+    overflow: hidden;
+
+    .current-avatar{
+      display: none;
+    }
+
+    .options-buttons{
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
+
+    .userOptionsToggle{
+      width: 80%;
+      border-radius: 5px;
+      color: #000001;
+      border: none;
+      background-color: inherit;
+      box-shadow: none;
+      text-align: left;
+      padding: 0;
+      padding-left: 2em;
+      padding-right: 1em;
+      border-bottom: 2px solid #F3F3F3;
+    }
+
+    .profile-collapse{
+      width: 80%;
+      margin: auto;
+    }
+
+    .profile-form{
+
+      font-size: 14px;
+
+      .profile-label{
+        display: none;
+      }
+
+      .profile-input{
+        background: #FFFFFF;
+        border: 1px solid #EEEEEE;
+        box-sizing: border-box;
+        border-radius: 1e+15px;
+        padding-left: 0.5em;
+        height: 3em;
+        width: 100%;
+        }
+      .profile-input:focus{
+        background: #FFFFFF;
+        border: 1px solid rgba(140, 198, 63, 0.5);
+        box-sizing: border-box;
+        border-radius: 1e+15px;
+        padding-left: 0.5em;
+        outline-offset: 0px !important;
+        outline: none !important;
+      }
+    }
+  }
+}

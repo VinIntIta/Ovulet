@@ -63,9 +63,9 @@
                                       name="password_confirmation" required />
                   </div>
 
-                  <div >
-                      <button class="button-std">
-                          {{ __('Реєстрація') }}
+                  <div class="text-center">
+                      <button class="button-std px-4">
+                          {{ __('Зареєструватись') }}
                       </button>
                   </div>
 
